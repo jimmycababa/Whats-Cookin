@@ -3,11 +3,47 @@ import Recipe = from "../src/Recipe";
 import Ingredient from '../src/classes/Ingredient';
 
 describe("Recipe", () => {
-  let ingredient, recipe
+  let ingredient, recipe;
+
   beforeEach(() => {
-    const ingredient = new Ingredient(1123, "eggs", 472);
-    const recipe = new Recipe(678353, "https://spoonacular.com/recipeImages/678353-556x370.jpg", [{ "instruction": "Season the pork chops with salt and pepper", "number": 1}???], "Maple Dijon Apple Cider Grilled Pork Chops", "tags?");
+    ingredient = new Ingredient(1123, "eggs", 472);
+    recipe = new Recipe(5411, "https://www.pumpkinnspice.com/wp-content/uploads/2020/08/creamy-macaroni-cheese-4.jpg", [{
+      "id": 20,
+      "quantity": {
+        "amount": 2,
+        "unit": "c"
+      }
+    },
+    {
+      "id": 8,
+      "quantity": {
+        "amount": 9,
+        "unit": "oz"
+      }
+    },
+    {
+      "id": 11,
+      "quantity": {
+        "amount": 1.5,
+        "unit": "cup"
+      }
+    },
+    {
+      "id": 225,
+      "quantity": {
+        "amount": 0.5,
+        "unit": "lb"
+      }],
+      [{ "instruction": "Salt the water then boil", "number": 1},
+      {"instruction": "Pour the dry noodles into the pot", "number": 2},
+      {"instruction": "Boil noodles for 8 minutes", "number": 3},
+      {"instruction": "Make a roux with flour and butter", "number": 4},
+      {"instruction": "Add cheese to roux", "number": 5},
+      {"instruction": "Add cheesy roux to noodles and mix", "number": 6}],
+      "Macaroni and Cheese", ["comfort food", "dinner"];
     });
+
+
     it('should be a function', () => {
 
       expect(Recipe).to.be.function());
