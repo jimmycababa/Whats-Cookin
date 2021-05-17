@@ -13,23 +13,23 @@
   <body>
     <header>
       <h1>What's Cookin'</h1>
-      <div class="search-nav">
         <form class="search">
           <input type="search" placeholder="Search..." name="search"/>
           <input type="submit" value="search"/>
         </form>
         <nav>
-          <button>Favorite Recipes</button>
-          <button>Recipes to Cook</button>
+          <button class="favorite-button">Favorite Recipes</button>
+          <button class="to-cook-button">Recipes to Cook</button>
         </nav>
-    </div>
     </header>
     <main>
       <section id="filter" class="filter hidden">
       </section>
       <section id="recipeDisplay" class="recipe-display">
         <div class="recipe-card">
-          <img src="https://www.pumpkinnspice.com/wp-content/uploads/2020/08/creamy-macaroni-cheese-4.jpg"/>
+          <div>
+          <img class="recipe-image" src="https://www.pumpkinnspice.com/wp-content/uploads/2020/08/creamy-macaroni-cheese-4.jpg"/>
+        </div>
           <article>Delicious Mac n Cheese</article>
         </div>
       </section>
