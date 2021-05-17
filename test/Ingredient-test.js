@@ -4,7 +4,7 @@ import Ingredient from '../src/classes/Ingredient';
 describe("Ingredient", () => {
   let ingredient
   beforeEach(() => {
-    const ingredient = new Ingredient(20081, "wheat flour", 142);
+    const ingredient = new Ingredient(582, "clementines", 203);
     });
     it('should be a function', () => {
 
@@ -17,14 +17,16 @@ describe("Ingredient", () => {
   it('should be stored with an id number', () => {
 
     expect(ingredient.id).to.be.number());
-    expect(ingredient.id).to.queal(20081));
+    expect(ingredient.id).to.queal(582));
   });
   it('should store the name of the ingredient', () => {
 
     expect(ingredient.name).to.be.string());
+    expect(ingredient.name).to.equal("clementines")
   });
   it('should store the cost of the ingredient', () => {
 
     expect(ingredient.cost).to.be.number());
+    expect(ingredient.cost).to.equal(203)
   });
 });
