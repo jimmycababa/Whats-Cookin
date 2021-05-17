@@ -1,3 +1,71 @@
+* {
+  border: blue solid 1px
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
 body {
-  background-color: blueviolet;
+  background-color: #FAF9F6;
+  font-family: 'Newsreader', serif;
+  height: 100%;
+  width: 100%;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+h1 {
+  margin-left: 5%
+}
+
+form {
+  margin-left: 5%;
+  margin-right: 10%;
+  width: 30%;
+  height: 30%;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 30%;
+  height: 30%;
+  justify-content: space-between;
+}
+
+
+.recipe-display {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.recipe-card {
+  height: 50px;
+  width: 10%;
+}
+
+.recipe-image {
+  height: 100%;
+  width: 100%;
+}
+
+
+.hidden {
+  display: none;
 }

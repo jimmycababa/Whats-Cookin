@@ -1,10 +1,57 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Whats Cookin'</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader&family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader&display=swap" rel="stylesheet">
+    <!-- Are the below two lines the same as the last one? -->
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
     <meta charset="UTF-8">
-    <title>Whats Cookin</title>
   </head>
   <body>
-    <h1>Whats Cookin</h1>
+    <header>
+      <h1>What's Cookin'</h1>
+        <form class="search">
+          <input type="search" placeholder="Search..." name="search"/>
+          <input type="submit" value="search"/>
+        </form>
+        <nav>
+          <button class="favorite-button">Favorite Recipes</button>
+          <button class="to-cook-button">Recipes to Cook</button>
+        </nav>
+    </header>
+    <main>
+      <section id="filter" class="filter hidden">
+      </section>
+      <section id="recipeDisplay" class="recipe-display">
+        <div class="recipe-card">
+          <div>
+          <img class="recipe-image" src="https://www.pumpkinnspice.com/wp-content/uploads/2020/08/creamy-macaroni-cheese-4.jpg"/>
+        </div>
+          <article>Delicious Mac n Cheese</article>
+        </div>
+      </section>
+      <section id="currentRecipeView" class="current-recipe-view hidden">
+        <h3>Wow a Delicious Recipe</h3>
+        <img src="https://www.pumpkinnspice.com/wp-content/uploads/2020/08/creamy-macaroni-cheese-4.jpg"/>
+        <section class="ingredients-list">
+        </section>
+        <section class="instructions-list">
+        </section>
+        <section class="tags-display">
+        </section>
+        <div class="save-buttons">
+          <button class="favorite-button">Favorite</button>
+          <button class="to-cook-button">Add to Weekly Meals</button>
+        </div>
+      </section>
+    </main>
   </body>
+  <script type="text/javascript" src="RecipeRepository.js"></script>
+  <script type="text/javascript" src="Recipe.js"></script>
+  <script type="text/javascript" src="Ingredient.js"></script>
+  <script type="text/javascript" src="User.js"></script>
+  <script type="text/javascript" src="scripts.js"></script>
 </html>
