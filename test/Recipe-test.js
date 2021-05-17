@@ -96,12 +96,25 @@ describe("Recipe", () => {
     {"id": 8, "quantity": {"amount": 9,"unit": "oz"}}, {"id": 11, "quantity": {"amount": 1.5, "unit": "cup"}}, {"id": 225,"quantity": {"amount": 0.5,"unit": "lb"}]);
   });
 
-  it("should be able to determine the names of ingredients needed"), () => {
+  it("should be able to determine the names of ingredients needed", () => {
     recipe.findIngredientNames();
     //should this method update the ingredient array by instantiating an ingredient class?
     //perhaps:
       //iterates over ingredients.js, forEach object check the id number against this.ingredients
       // and add a name property and a cost property to this.ingredients objects?
+
+    //edit this assertion statement later to check if this.ingredients objects have the required data?
     expect(recipe.findIngredientNames()).to.deep.equal(["pasta", "cheddar cheese", "flour", "butter"]);
-  }
+  });
+
+    it("should calculate estimated cost in cents of ingredients"), () => {
+      recipe.getPriceOfIngredients();
+      //populates a property with an array of costs?
+      //retrieves these costs from the ingredients array of objects
+
+      //update this assertion statement to check that it updates this.ingredients
+      expect(recipe.getPriceOfIngredients()).to.deep.equal([2, 1.5, 0.75, 7.75])
+    }
+
+  
 });
