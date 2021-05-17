@@ -47,6 +47,25 @@ nav {
 }
 
 
+.recipe-display {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.recipe-card {
+  height: 50px;
+  width: 10%;
+}
+
+.recipe-image {
+  height: 100%;
+  width: 100%;
+}
+
+
 .hidden {
   display: none;
 }
