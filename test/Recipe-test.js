@@ -95,4 +95,13 @@ describe("Recipe", () => {
     expect(recipe.ingredients).to.deep.equal([{"id": 20, "quantity": {"amount": 2, "unit": "c"}},
     {"id": 8, "quantity": {"amount": 9,"unit": "oz"}}, {"id": 11, "quantity": {"amount": 1.5, "unit": "cup"}}, {"id": 225,"quantity": {"amount": 0.5,"unit": "lb"}]);
   });
+
+  it("should be able to determine the names of ingredients needed"), () => {
+    recipe.findIngredientNames();
+    //should this method update the ingredient array by instantiating an ingredient class?
+    //perhaps:
+      //iterates over ingredients.js, forEach object check the id number against this.ingredients
+      // and add a name property and a cost property to this.ingredients objects?
+    expect(recipe.findIngredientNames()).to.deep.equal(["pasta", "cheddar cheese", "flour", "butter"]);
+  }
 });
