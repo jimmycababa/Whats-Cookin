@@ -49,15 +49,54 @@ describe('RecipeRepository', () => {
 
   //Happy
   it('should filter recipes via tags', () => {
-    user.filterRecipesTags("dinner");
+    recipeRepo.filterRecipesTags("dinner");
 
-    expect(user.filterRecipesTags("dinner")).to.equal([recipe]);
+    expect(recipeRepo.filterRecipesTags("dinner")).to.equal([recipe]);
   });
 
   //Sad
     it('should alert user when no recipe with that tag is found', () => {
-      user.filterRecipesTags("tea");
+      recipeRepo.filterRecipesTags("tea");
 
-      expect(user.filterRecipesTags("tea")).to.equal("Sorry, we could not find any recipes with the tea tag");
+      expect(recipeRepo.filterRecipesTags("tea")).to.equal("Sorry, we could not find any recipes with the tea tag");
     });
+
+    //Happy
+      it('should filter favorite recipes via name or ingredients', () => {
+          recipeRepo.filterRecipesByName("Mac and Cheese");
+          //should return an array based on input
+
+          expect(recipeRepo.filterRecipesByName("Mac and Cheese")).to.equal([recipe]);
+        });
+
+      //Sad
+        it('should alert the user when no recipe with that name is found', () => {
+            recipeRepo.filterRecipesByName("Crab legs");
+            //should return an array based on input
+
+            expect(recipeRepo.filterRecipesByName("Crab legs")).to.equal("Sorry, we could not find any recipes with the name Crab legs");
+          });
+
+      //Happy
+        it('should filter favorite recipes via name or ingredients', () => {
+          //the line below is intentional! we can refactor later
+          //called as two separate functions for now
+          recipeRepo.filterRecipesByName("pasta");
+
+          //call this function in an if statement in filterFavRecipesByName!
+          expect(recipeRepo.filterRecipesByIngredients("pasta")).to.equal([recipe]);
+        });
+
+    //Sad
+      it('should alert the user if no recipe with specified ingredients are found', () => {
+          //the line below is intentional! we can refactor later
+          //called as two separate functions for now
+      recipeRepo.filterRecipesByName(["milk", "corn"]);
+
+          //call this function in an if statement in filterFavRecipesByName!
+              //this string may have to change according to the dom to be something more generic
+        expect(recipeRepo.filterRecipesByIngredients("pasta")).to.equal("Sorry, we could not find any recipes with the ingredients milk and corn");
+      });
+
+
 });
