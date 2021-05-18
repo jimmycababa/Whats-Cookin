@@ -97,6 +97,12 @@ describe("User", () => {
         expect(user.filterFavRecipesByName("Mac and Cheese")).to.equal([recipe]);
       });
 
-  
+    //Sad
+      it('should alert the user when no recipe with that name is found', () => {
+          user.filterFavRecipesByName("Crab legs");
+          //should return an array based on input
+
+          expect(user.filterFavRecipesByName("Crab legs")).to.equal("Sorry, we could not find any recipes with the name Crab legs");
+        });
 
 });
