@@ -6,6 +6,7 @@ describe("Recipe", () => {
   let ingredient, recipe;
 
   beforeEach(() => {
+    //how do we incorporate this variable below into the recipe?
     ingredient = new Ingredient(1123, "eggs", 472);
     recipe = new Recipe(51, "https://www.pumpkinnspice.com/wp-content/uploads/2020/08/creamy-macaroni-cheese-4.jpg", [{
       "id": 20,
