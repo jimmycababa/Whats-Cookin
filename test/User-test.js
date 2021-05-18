@@ -52,5 +52,13 @@ describe("User", () => {
       expect(user.favoriteRecipes).to.deep.equal([recipe]);
     });
 
+    //Sad
+      it('should prevent the user from favoriting the same recipe twice', () => {
+        user.favoriteRecipes = [recipe];
+        user.addToFavoriteRecipes(recipe);
+
+        expect(user.favoriteRecipes).to.deep.equal([recipe]);
+      });
+
 
 });
