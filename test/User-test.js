@@ -60,5 +60,12 @@ describe("User", () => {
         expect(user.favoriteRecipes).to.deep.equal([recipe]);
       });
 
+      //Happy
+        it('should be able to add a recipe to weekly recipes', () => {
+            user.addToRecipeCook(recipe);
 
+           expect(user.recipesToCook).to.deep.equal([recipe]);
+        });
+
+    
 });
