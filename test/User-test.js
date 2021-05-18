@@ -1,6 +1,6 @@
 import { expect } from 'chai';
-import User = from "../src/User";
-import Ingredient from '../src/classes/Ingredient';
+import { User } = from "../src/User";
+import { Ingredient } from '../src/classes/Ingredient';
 
 describe("User", () => {
   let user, ingredient, recipe;
