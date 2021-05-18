@@ -97,9 +97,9 @@ describe("Recipe", () => {
   });
 
   it("should be able to determine the names of ingredients needed", () => {
-    recipe.findIngredientNames(ingredientData);
+    recipe.findIngredientNames(ingredientsData);
     //should this method update the ingredient array by instantiating an ingredient class?
-    //instantiate Ingredient with relevant data
+    //instantiate Ingredient with relevant data - if we rebuild our Ingredient?
     //perhaps:
       //iterates over ingredients.js, forEach object check the id number against this.ingredients
       // and add a name property and a cost property to this.ingredients objects?
@@ -109,7 +109,7 @@ describe("Recipe", () => {
   });
 
     it("should calculate estimated cost in cents of ingredients"), () => {
-      recipe.getPriceOfIngredients(ingredientData);
+      recipe.getPriceOfIngredients(ingredientsData);
       //populates a property with an array of costs?
       //retrieves these costs from the this.ingredients array of objects
 
