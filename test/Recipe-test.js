@@ -97,8 +97,9 @@ describe("Recipe", () => {
   });
 
   it("should be able to determine the names of ingredients needed", () => {
-    recipe.findIngredientNames();
+    recipe.findIngredientNames(ingredientData);
     //should this method update the ingredient array by instantiating an ingredient class?
+    //instantiate Ingredient with relevant data
     //perhaps:
       //iterates over ingredients.js, forEach object check the id number against this.ingredients
       // and add a name property and a cost property to this.ingredients objects?
@@ -108,13 +109,13 @@ describe("Recipe", () => {
   });
 
     it("should calculate estimated cost in cents of ingredients"), () => {
-      recipe.getPriceOfIngredients();
+      recipe.getPriceOfIngredients(ingredientData);
       //populates a property with an array of costs?
-      //retrieves these costs from the ingredients array of objects
+      //retrieves these costs from the this.ingredients array of objects
 
       //update this assertion statement to check that it updates this.ingredients
-      expect(recipe.getPriceOfIngredients()).to.deep.equal([2, 1.5, 0.75, 7.75])
-    }
+      expect(recipe.getPriceOfIngredients().to.deep.equal([2, 1.5, 0.75, 7.75])
+    };
 
     it("should return the instructions needed to cook recipe"), () => {
       recipe.retrieveInstructions();
