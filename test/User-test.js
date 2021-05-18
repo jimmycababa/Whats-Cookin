@@ -52,28 +52,51 @@ describe("User", () => {
       expect(user.favoriteRecipes).to.deep.equal([recipe]);
     });
 
-    //Sad
-      it('should prevent the user from favoriting the same recipe twice', () => {
-        user.favoriteRecipes = [recipe];
-        user.addToFavoriteRecipes(recipe);
+  //Sad
+    it('should prevent the user from favoriting the same recipe twice', () => {
+      user.favoriteRecipes = [recipe];
+      user.addToFavoriteRecipes(recipe);
 
-        expect(user.favoriteRecipes).to.deep.equal([recipe]);
+      expect(user.favoriteRecipes).to.deep.equal([recipe]);
+    });
+
+  //Happy
+    it('should be able to add a recipe to weekly recipes', () => {
+      user.addToRecipeCook(recipe);
+
+      expect(user.recipesToCook).to.deep.equal([recipe]);
+    });
+
+  //Sad
+    it('should prevent the user from saving the same recipe twice', () => {
+      user.favoriteRecipes = [recipe];
+      user.addToRecipeCook(recipe);
+
+      expect(user.recipesToCook).to.deep.equal([recipe]);
+    });
+
+  //Happy
+    it('should filter favorite recipes via tags', () => {
+      user.filterFavRecipesTags("dinner");
+
+      expect(user.filterFavRecipesTags("dinner")).to.equal([recipe]);
+    });
+
+  //Sad
+    it('should alert user when no recipe with that tag is found', () => {
+      user.filterFavRecipesTags("tea");
+
+      expect(user.filterFavRecipesTags("tea")).to.equal("Sorry, we could not find any recipes with the tea tag");
+    });
+
+  //Happy
+    it('should filter favorite recipes via name or ingredients', () => {
+        user.filterFavRecipesByName("Mac and Cheese");
+        //should return an array based on input
+
+        expect(user.filterFavRecipesByName("Mac and Cheese")).to.equal([recipe]);
       });
 
-      //Happy
-        it('should be able to add a recipe to weekly recipes', () => {
-            user.addToRecipeCook(recipe);
-
-           expect(user.recipesToCook).to.deep.equal([recipe]);
-        });
-
-        //Sad
-          it('should prevent the user from saving the same recipe twice', () => {
-              user.favoriteRecipes = [recipe];
-              user.addToRecipeCook(recipe);
-
-             expect(user.recipesToCook).to.deep.equal([recipe]);
-          });
-
+  
 
 });
