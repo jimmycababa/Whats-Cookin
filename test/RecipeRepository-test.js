@@ -54,5 +54,10 @@ describe('RecipeRepository', () => {
     expect(user.filterRecipesTags("dinner")).to.equal([recipe]);
   });
 
+  //Sad
+    it('should alert user when no recipe with that tag is found', () => {
+      user.filterRecipesTags("tea");
 
+      expect(user.filterRecipesTags("tea")).to.equal("Sorry, we could not find any recipes with the tea tag");
+    });
 });
