@@ -67,5 +67,13 @@ describe("User", () => {
            expect(user.recipesToCook).to.deep.equal([recipe]);
         });
 
-    
+        //Sad
+          it('should prevent the user from saving the same recipe twice', () => {
+              user.favoriteRecipes = [recipe];
+              user.addToRecipeCook(recipe);
+
+             expect(user.recipesToCook).to.deep.equal([recipe]);
+          });
+
+
 });
