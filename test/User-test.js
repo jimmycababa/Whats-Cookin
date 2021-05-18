@@ -115,7 +115,18 @@ describe("User", () => {
         expect(user.filterFavRecipesByIngredients("pasta")).to.equal([recipe]);
       });
 
-              
+  //Sad
+    it('should alert the user if no recipe with specified ingredients are found', () => {
+        //the line below is intentional! we can refactor later
+        //called as two separate functions for now
+      user.filterFavRecipesByName(["milk", "corn"]);
+
+        //call this function in an if statement in filterFavRecipesByName!
+            //this string may have to change according to the dom to be something more generic
+      expect(user.filterFavRecipesByIngredients("pasta")).to.equal("Sorry, we could not find any recipes with the ingredients milk and corn");
+    });
+
+
 
 
 });
