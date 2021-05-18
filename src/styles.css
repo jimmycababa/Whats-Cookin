@@ -46,7 +46,7 @@ nav {
   justify-content: space-between;
 }
 
-
+/*  */
 .recipe-display {
   display: flex;
   height: 100%;
@@ -65,6 +65,55 @@ nav {
   width: 100%;
 }
 
+/* Current Recipe View */
+
+.current-recipe-view {
+  display: flex;
+  flex-direction: column;
+}
+
+.current-recipe-name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.current-recipe-add-to-fav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.current-recipe-img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.current-recipe-ing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.current-recipe-inst {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.current-recipe-tags {
+  display: flex;
+    justify-content: space-around;
+}
+
+.current-recipe-add-to-cook {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .hidden {
   display: none;

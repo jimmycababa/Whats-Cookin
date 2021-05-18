@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import RecipeRepository from '../src/classes/RecipeRepository';
-import Recipe from "../src/Recipe";
+import Recipe from "../src/classes/Recipe";
 
 describe('RecipeRepository', () => {
   let recipeRepo, recipe
@@ -12,11 +12,11 @@ describe('RecipeRepository', () => {
 
     expect(RecipeRepository).to.be.a('function');
   });
-  it('should be an instances of RecipeRepository' () => {
+  it('should be an instances of RecipeRepository', () => {
 
     expect(recipeRepo).to.be.an.instanceof(RecipeRepository);
   });
-  it('should store multiple recipes' () => {
+  it('should store multiple recipes', () => {
 
     expect(recipeRepo.recipes).to.be.array();
   });

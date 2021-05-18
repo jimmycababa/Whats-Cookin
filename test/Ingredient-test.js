@@ -8,7 +8,7 @@ describe("Ingredient", () => {
     });
     it('should be a function', () => {
 
-      expect(Ingredient).to.be.function());
+      expect(Ingredient).to.be.a('function');
     });
   it('should be an instance of Ingredient', () => {
 
