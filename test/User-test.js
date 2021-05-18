@@ -45,6 +45,12 @@ describe("User", () => {
     expect(user.pantry).to.deep.equal([{"ingredient": 1124, "amount": 3}, {"ingredient": 1127, "amount": 2}, {"ingredient": 14, "amount": 7}]);
   });
 
+  //Happy
+    it('should be able to store favorites recipes', () => {
+      user.addToFavoriteRecipes(recipe);
+
+      expect(user.favoriteRecipes).to.deep.equal([recipe]);
+    });
 
 
 });
