@@ -105,4 +105,17 @@ describe("User", () => {
           expect(user.filterFavRecipesByName("Crab legs")).to.equal("Sorry, we could not find any recipes with the name Crab legs");
         });
 
+    //Happy
+      it('should filter favorite recipes via name or ingredients', () => {
+        //the line below is intentional! we can refactor later
+        //called as two separate functions for now
+        user.filterFavRecipesByName("pasta");
+
+        //call this function in an if statement in filterFavRecipesByName!
+        expect(user.filterFavRecipesByIngredients("pasta")).to.equal([recipe]);
+      });
+
+              
+
+
 });
