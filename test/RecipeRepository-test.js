@@ -46,4 +46,13 @@ describe('RecipeRepository', () => {
     expect(recipeRepo.recipes[0].to.be.an.instanceof(Recipe));
     expect(recipeRepo.recipes[1].to.be.an.instanceof(Recipe));
   })
+
+  //Happy
+  it('should filter recipes via tags', () => {
+    user.filterRecipesTags("dinner");
+
+    expect(user.filterRecipesTags("dinner")).to.equal([recipe]);
+  });
+
+
 });
