@@ -40,5 +40,11 @@ describe("User", () => {
     expect(user.name).to.equal("Sally HungryPerson");
   });
 
+  it('should store related ingredients', () => {
+
+    expect(user.pantry).to.deep.equal([{"ingredient": 1124, "amount": 3}, {"ingredient": 1127, "amount": 2}, {"ingredient": 14, "amount": 7}]);
+  });
+
+
 
 });
