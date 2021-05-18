@@ -29,12 +29,15 @@ describe('RecipeRepository', () => {
 
     expect(RecipeRepository).to.be.a('function');
   });
+  
   it('should be an instances of RecipeRepository' () => {
 
     expect(recipeRepo).to.be.an.instanceof(RecipeRepository);
   });
+
   it('should store multiple recipes' () => {
 
     expect(recipeRepo.recipes).to.be.array();
+    expect(recipeRepo.recipes).to.deep.equal([recipe1, recipe]);
   });
 });
