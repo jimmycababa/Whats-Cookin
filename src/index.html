@@ -3,8 +3,10 @@
   <head>
     <title>Whats Cookin'</title>
     <link rel="stylesheet" href="./styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Newsreader&family=Noto+Sans&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Newsreader&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Newsreader&family=Noto+Sans&display=swap" rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Newsreader&display=swap" rel="stylesheet"> -->
     <!-- Are the below two lines the same as the last one? -->
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="utf-8" http-equiv="encoding">
@@ -23,9 +25,34 @@
         </nav>
     </header>
     <main>
-      <section id="filter" class="filter hidden">
-      </section>
-      <section id="recipeDisplay" class="recipe-display">
+        <section id="filter" class="filter">
+          <form>
+            <select name="food-tags">
+              <option type="checkbox" name="tags" value="antipasti">Antipasti</option>
+              <option type="checkbox" name="tags" value="starter">Starter</option>
+              <option type="checkbox" name="tags" value="snack">Snack</option>
+              <option type="checkbox" name="tags" value="appetizer">Appetizer</option>
+              <option type="checkbox" name="tags" value="antipasto">Antipasto</option>
+              <option type="checkbox" name="tags" value="hor-d'oeuvre">Hor d'oeuvre</option>
+              <option type="checkbox" name="tags" value="lunch">Lunch</option>
+              <option type="checkbox" name="tags" value="main-course">Main Course</option>
+              <option type="checkbox" name="tags" value="main-dish">Main Dish</option>
+              <option type="checkbox" name="tags" value="dinner">Dinner</option>
+              <option type="checkbox" name="tags" value="sauce">Sauce</option>
+              <option type="checkbox" name="tags" value="side-dish">Side Dish</option>
+              <option type="checkbox" name="tags" value="brunch">Brunch</option>
+              <option type="checkbox" name="tags" value="morning-meal">Morning Meal</option>
+              <option type="checkbox" name="tags" value="salad">Salad</option>
+              <option type="checkbox" name="tags" value="breakfast">Breakfast</option>
+              <option type="checkbox" name="tags" value="spread">Spread</option>
+              <option type="checkbox" name="tags" value="dip">Dip</option>
+              <option type="checkbox" name="tags" value="condiment">Condiment</option>
+              <option type="checkbox" name="tags" value="lunch">Lunch</option>
+            </select>
+            <input type="submit" value="search">
+          </form>
+        </section>
+      <section id="recipeDisplay" class="recipe-display hidden">
         <div class="recipe-card">
           <div>
           <img class="recipe-image" src="https://www.pumpkinnspice.com/wp-content/uploads/2020/08/creamy-macaroni-cheese-4.jpg"/>
@@ -33,17 +60,46 @@
           <article>Delicious Mac n Cheese</article>
         </div>
       </section>
-      <section id="currentRecipeView" class="current-recipe-view hidden">
-        <h3>Wow a Delicious Recipe</h3>
-        <img src="https://www.pumpkinnspice.com/wp-content/uploads/2020/08/creamy-macaroni-cheese-4.jpg"/>
-        <section class="ingredients-list">
+      <section id="currentRecipeView" class="current-recipe-view ">
+        <section class="current-recipe-name">
+          <h3>Loaded Chocolate Chip Pudding Cookie Cups</h3>
         </section>
-        <section class="instructions-list">
-        </section>
-        <section class="tags-display">
-        </section>
-        <div class="save-buttons">
+        <section class="current-recipe-add-to-fav">
           <button class="favorite-button">Favorite</button>
+        </section>
+        <section class="current-recipe-img">
+          <img src="https://spoonacular.com/recipeImages/595736-556x370.jpg"/>
+        </section>
+        <section class="current-recipe-ing">
+          <ul>
+            <li>Chocolate Chips</li>
+            <li>Brown Sugar</li>
+            <li>Vanilla Extract</li>
+            <li>Butter</li>
+            <li>Walnuts</li>
+            <li>Milk</li>
+            <li>Eggs</li>
+          </ul>
+        </section>
+        <section class="current-recipe-inst">
+          <ol>
+            <li>In a large mixing bowl, whisk together the dry ingredients (flour, pudding mix, soda and salt). Set aside.In a large mixing bowl of a stand mixer, cream butter for 30 seconds. Gradually add granulated sugar and brown sugar and cream until light and fluffy.</li>
+            <li>Add egg and vanilla and mix until combined.</li>
+            <li>Add dry ingredients and mix on low just until incorporated. Stir in chocolate chips.Scoop the dough into 1,5 tablespoon size balls and place on a plate or sheet. Cover with saran wrap and chill at least 2 hours or overnight.When ready to bake, preheat oven to 350 degrees.</li>
+            <li>Place the cookie dough balls into ungreased muffin pan. Sprinkle with sea salt.</li>
+            <li>Bake for 9 to 10 minutes, or until you see the edges start to brown</li>
+            <li>Remove the pan from the oven and let sit for 10 minutes before removing onto a cooling rack.Top with ice cream and a drizzle of chocolate sauce.</li>
+          </ol>
+        </section>
+        <section class="current-recipe-tags">
+          <p>antipasti</p>
+          <p>starter</p>
+          <p>snack</p>
+          <p>appetizer</p>
+          <p>antipasto</p>
+          <p>hor d'oeuvre</p>
+        </section>
+        <div class="current-recipe-add-to-cook">
           <button class="to-cook-button">Add to Weekly Meals</button>
         </div>
       </section>
