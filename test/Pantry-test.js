@@ -1,14 +1,15 @@
 import { expect } from 'chai';
-import { User } from "../src/classes/User";
-import { Ingredient } from '../src/classes/Ingredient';
+//import { User } from "../src/classes/User";
+//import { Ingredient } from '../src/classes/Ingredient';
 import { Recipe } from '../src/classes/Recipe';
+import { Pantry } from '../src/classes/Pantry';
 
 describe("Pantry", () => {
-  let user, recipe, pantry;
+  let recipe, pantry;
 
   beforeEach(() => {
     //ingredient = new Ingredient(1124, "jelly beans", 625);
-    user = new User(55, "Sally HungryPerson", [{"ingredient": 1124, "amount": 3}, {"ingredient": 1127, "amount": 2}, {"ingredient": 14, "amount": 7}]);
+    //user = new User(55, "Sally HungryPerson", [{"ingredient": 1124, "amount": 3}, {"ingredient": 1127, "amount": 2}, {"ingredient": 14, "amount": 7}]);
 
 //should we instantiate ingredients for this pantry?
     pantry = new Pantry([{
