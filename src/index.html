@@ -3,8 +3,10 @@
   <head>
     <title>Whats Cookin'</title>
     <link rel="stylesheet" href="./styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Newsreader&family=Noto+Sans&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Newsreader&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Newsreader&family=Noto+Sans&display=swap" rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Newsreader&display=swap" rel="stylesheet"> -->
     <!-- Are the below two lines the same as the last one? -->
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="utf-8" http-equiv="encoding">
@@ -23,9 +25,33 @@
         </nav>
     </header>
     <main>
-      <section id="filter" class="filter hidden">
-        <!-- This is the section for the checkboxes -->
-      </section>
+        <section id="filter" class="filter">
+          <form>
+            <select name="food-tags">
+              <option type="checkbox" name="tags" value="antipasti">Antipasti</option>
+              <option type="checkbox" name="tags" value="starter">Starter</option>
+              <option type="checkbox" name="tags" value="snack">Snack</option>
+              <option type="checkbox" name="tags" value="appetizer">Appetizer</option>
+              <option type="checkbox" name="tags" value="antipasto">Antipasto</option>
+              <option type="checkbox" name="tags" value="hor-d'oeuvre">Hor d'oeuvre</option>
+              <option type="checkbox" name="tags" value="lunch">Lunch</option>
+              <option type="checkbox" name="tags" value="main-course">Main Course</option>
+              <option type="checkbox" name="tags" value="main-dish">Main Dish</option>
+              <option type="checkbox" name="tags" value="dinner">Dinner</option>
+              <option type="checkbox" name="tags" value="sauce">Sauce</option>
+              <option type="checkbox" name="tags" value="side-dish">Side Dish</option>
+              <option type="checkbox" name="tags" value="brunch">Brunch</option>
+              <option type="checkbox" name="tags" value="morning-meal">Morning Meal</option>
+              <option type="checkbox" name="tags" value="salad">Salad</option>
+              <option type="checkbox" name="tags" value="breakfast">Breakfast</option>
+              <option type="checkbox" name="tags" value="spread">Spread</option>
+              <option type="checkbox" name="tags" value="dip">Dip</option>
+              <option type="checkbox" name="tags" value="condiment">Condiment</option>
+              <option type="checkbox" name="tags" value="lunch">Lunch</option>
+            </select>
+            <input type="submit" value="search">
+          </form>
+        </section>
       <section id="recipeDisplay" class="recipe-display hidden">
         <div class="recipe-card">
           <div>
@@ -34,7 +60,7 @@
           <article>Delicious Mac n Cheese</article>
         </div>
       </section>
-      <section id="currentRecipeView" class="current-recipe-view">
+      <section id="currentRecipeView" class="current-recipe-view ">
         <section class="current-recipe-name">
           <h3>Loaded Chocolate Chip Pudding Cookie Cups</h3>
         </section>
