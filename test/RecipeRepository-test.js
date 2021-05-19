@@ -3,7 +3,7 @@ import { RecipeRepository } from '../src/classes/RecipeRepository';
 import { Recipe } from "../src/Recipe";
 
 describe('RecipeRepository', () => {
-  let recipeRepo, recipe
+  let recipeRepo, recipe, recipe1, recipes;
 
   beforeEach(() => {
     recipe = new Recipe(51, "https://www.pumpkinnspice.com/wp-content/uploads/2020/08/creamy-macaroni-cheese-4.jpg", [{"id": 20, "quantity": {"amount": 2, "unit": "c"}}, {"id": 8, "quantity": {"amount": 9, "unit": "oz"}}, {"id": 11, "quantity": { "amount": 1.5, "unit": "cup"}}, {"id": 225, "quantity": {"amount": 0.5, "unit": "lb"}}],
@@ -13,17 +13,17 @@ describe('RecipeRepository', () => {
       {"instruction": "Make a roux with flour and butter", "number": 4},
       {"instruction": "Add cheese to roux", "number": 5},
       {"instruction": "Add cheesy roux to noodles and mix", "number": 6}],
-      "Macaroni and Cheese", ["comfort food", "dinner"];
+      "Macaroni and Cheese", ["comfort food", "dinner"]);
     });
 
-    recipe1 = new Recipe(32, "https://www.spendwithpennies.com/wp-content/uploads/2021/04/Fried-Eggs-SpendWithPennies-4.jpg", [{"id": 2, "quantity": {"amount": 2, "unit": "small"}, {"id": 8, "quantity": {"amount": 2, "unit": "tbs"}}], [{ "instruction": "Melt butter in pan", "number": 1},
+    recipe1 = new Recipe(32, "https://www.spendwithpennies.com/wp-content/uploads/2021/04/Fried-Eggs-SpendWithPennies-4.jpg", [{"id": 2, "quantity": {"amount": 2, "unit": "small"}}, {"id": 8, "quantity": {"amount": 2, "unit": "tbs"}}], [{ "instruction": "Melt butter in pan", "number": 1},
     {"instruction": "Crack the eggs in the pan", "number": 2},
-    {"instruction": "Flip eggs once and cook to desired firmness", "number": 3}], "Fried Eggs in Butter", ["breakfast", "protein"])
+    {"instruction": "Flip eggs once and cook to desired firmness", "number": 3}], "Fried Eggs in Butter", ["breakfast", "protein"]);
 
     recipes = [recipe1, recipe];
 
     recipeRepo = new RecipeRepository(recipes);
-  });
+  // });
 
   it('should be a function', () => {
 
