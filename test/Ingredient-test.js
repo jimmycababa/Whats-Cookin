@@ -5,7 +5,11 @@ describe("Ingredient", () => {
   let ingredient;
 
   beforeEach(() => {
-    ingredient = new Ingredient(582, "clementines", 203);
+    //added new properties to the ingredient class
+    ingredient = new Ingredient(582, "clementine", 203, {"quantity": {
+      "amount": .25,
+      "unit": "lb"
+    }});
   });
 
   it('should be a function', () => {
@@ -34,5 +38,14 @@ describe("Ingredient", () => {
 
     expect(ingredient.cost).to.be.number();
     expect(ingredient.cost).to.equal(203);
+  });
+
+  it('should store the quantity of the ingredient', () => {
+
+    expect(ingredient.quantity).to.be.an("object");
+    expect(ingredient.quantity).to.equal({"quantity": {
+      "amount": .25,
+      "unit": "lb"
+    }});
   });
 });
