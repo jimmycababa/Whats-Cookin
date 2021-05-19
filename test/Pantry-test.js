@@ -35,5 +35,16 @@ describe("Pantry", () => {
 
     });
 
+    it('should be a function', () => {
+
+      expect(Pantry).to.be.a.function();
+    });
+
+    it('should be an instance of User', () => {
+
+    expect(pantry).to.be.an.instanceof(Pantry);
+    });
+
+
 
 });
