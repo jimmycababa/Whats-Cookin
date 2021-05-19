@@ -10,6 +10,7 @@ describe("Pantry", () => {
     //ingredient = new Ingredient(1124, "jelly beans", 625);
     user = new User(55, "Sally HungryPerson", [{"ingredient": 1124, "amount": 3}, {"ingredient": 1127, "amount": 2}, {"ingredient": 14, "amount": 7}]);
 
+//should we instantiate ingredients for this pantry?
     pantry = new Pantry([{
       "ingredient": 17,
       "amount": 1
@@ -69,6 +70,13 @@ describe("Pantry", () => {
 
       //iterate over pantry.items to compare ids to the recipe, return the string of the name of the missing ingredients by iterating over data
     expect(pantry.findMissingIngredients()).to.equal("Sorry, you will need to buy pasta, cheddar cheese, flour, butter to cook this recipe")
-    })
+  });
+
+  it("should be able to find missing ingredients", () => {
+    pantry.checkPantryQuantities(recipe);
+
+    //iterate over pantry.items to compare quantities to the recipe ingredients quantities, return a string of the amount of missing quantities still needed to cook
+    expect(pantry.checkPantryQuantities()).to.equal("Sorry, you will need 2 c of pasta, 9 oz of cheddar cheese, 1.5 c of flour, 0.5 lb of butter to cook this recipe");
+  });
 
 });
