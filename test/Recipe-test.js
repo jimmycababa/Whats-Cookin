@@ -1,12 +1,27 @@
 import { expect } from 'chai';
-import { Recipe } = from "../src/Recipe";
-import { Ingredient } from '../src/classes/Ingredient';
+import { Recipe } from "../src/Recipe";
+import { Ingredient } from './src/classes/Ingredient';
 
 describe("Recipe", () => {
-  let ingredient, recipe;
+  let ingredient, recipe, ingredientsData;
 
   beforeEach(() => {
     //how do we incorporate this variable below into the recipe?
+    ingredientsData = [{
+      "id": 81,
+      "name": "peaches",
+      "estimatedCostInCents": 190
+    },
+    {
+      "id": 12,
+      "name": "soda",
+      "estimatedCostInCents": 902
+    },
+    {
+      "id": 53,
+      "name": "lobster",
+      "estimatedCostInCents": 472
+    }];
     ingredient = new Ingredient(1123, "eggs", 472);
     recipe = new Recipe(51, "https://www.pumpkinnspice.com/wp-content/uploads/2020/08/creamy-macaroni-cheese-4.jpg", [{
       "id": 20,
@@ -34,15 +49,15 @@ describe("Recipe", () => {
       "quantity": {
         "amount": 0.5,
         "unit": "lb"
-      }],
+      }}],
       [{ "instruction": "Salt the water then boil", "number": 1},
       {"instruction": "Pour the dry noodles into the pot", "number": 2},
       {"instruction": "Boil noodles for 8 minutes", "number": 3},
       {"instruction": "Make a roux with flour and butter", "number": 4},
       {"instruction": "Add cheese to roux", "number": 5},
       {"instruction": "Add cheesy roux to noodles and mix", "number": 6}],
-      "Macaroni and Cheese", ["comfort food", "dinner"];
-    });
+      "Macaroni and Cheese", ["comfort food", "dinner"]
+    )});
 
 
   it('should be a function', () => {
@@ -94,7 +109,7 @@ describe("Recipe", () => {
 
     expect(recipe.ingredients).to.be.array();
     expect(recipe.ingredients).to.deep.equal([{"id": 20, "quantity": {"amount": 2, "unit": "c"}},
-    {"id": 8, "quantity": {"amount": 9,"unit": "oz"}}, {"id": 11, "quantity": {"amount": 1.5, "unit": "cup"}}, {"id": 225,"quantity": {"amount": 0.5,"unit": "lb"}]);
+    {"id": 8, "quantity": {"amount": 9,"unit": "oz"}}, {"id": 11, "quantity": {"amount": 1.5, "unit": "cup"}}, {"id": 225,"quantity": {"amount": 0.5,"unit": "lb"}}])
   });
 
   it("should be able to determine the names of ingredients needed", () => {
@@ -109,16 +124,16 @@ describe("Recipe", () => {
     expect(recipe.findIngredientNames()).to.deep.equal(["pasta", "cheddar cheese", "flour", "butter"]);
   });
 
-    it("should calculate estimated cost in cents of ingredients"), () => {
+    it("should calculate estimated cost in cents of ingredients", () => {
       recipe.getPriceOfIngredients(ingredientsData);
       //populates a property with an array of costs?
       //retrieves these costs from the this.ingredients array of objects
 
       //update this assertion statement to check that it updates this.ingredients
-      expect(recipe.getPriceOfIngredients().to.deep.equal([2, 1.5, 0.75, 7.75])
-    };
+      expect(recipe.getPriceOfIngredients()).to.deep.equal([2, 1.5, 0.75, 7.75])
+    });
 
-    it("should return the instructions needed to cook recipe"), () => {
+    it("should return the instructions needed to cook recipe", () => {
       recipe.retrieveInstructions();
 
       expect(recipe.retrieveInstructions().to.deep.equal([{ "instruction": "Salt the water then boil", "number": 1},
@@ -128,5 +143,5 @@ describe("Recipe", () => {
       {"instruction": "Add cheese to roux", "number": 5},
       {"instruction": "Add cheesy roux to noodles and mix", "number": 6}],
       "Macaroni and Cheese", ["comfort food", "dinner"]))
-    }
+    });
 });
