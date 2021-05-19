@@ -45,6 +45,23 @@ describe("Pantry", () => {
     expect(pantry).to.be.an.instanceof(Pantry);
     });
 
+    it('should store items', () => {
 
+    expect(pantry.item).to.deep.equal([{"ingredient": 17, "amount": 1}, {"ingredient": 107, "amount": 8}, { "ingredient": 99, "amount": 6}]);
+    });
+
+    it('should store items by ingredient', () => {
+
+    expect(pantry.item[0].ingredient).to.equal(17);
+    expect(pantry.item[1].ingredient).to.equal(107);
+    expect(pantry.item[2].ingredient).to.equal(99);
+    });
+
+    it('should store items by amount', () => {
+
+    expect(pantry.item[0].amount).to.equal(1);
+    expect(pantry.item[1].amount).to.equal(8);
+    expect(pantry.item[2].amount).to.equal(6);
+    });
 
 });
