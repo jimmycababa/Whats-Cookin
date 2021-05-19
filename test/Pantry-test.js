@@ -6,6 +6,34 @@ import { Recipe } from '../src/classes/Recipe';
 describe("Pantry", () => {
   let user, recipe, pantry;
 
+  beforeEach(() => {
+    //ingredient = new Ingredient(1124, "jelly beans", 625);
+    user = new User(55, "Sally HungryPerson", [{"ingredient": 1124, "amount": 3}, {"ingredient": 1127, "amount": 2}, {"ingredient": 14, "amount": 7}]);
+
+    pantry = new Pantry([{
+      "ingredient": 17,
+      "amount": 1
+    },
+    {
+      "ingredient": 107,
+      "amount": 8
+    },
+    {
+      "ingredient": 99,
+      "amount": 6
+    }]);
+
+    recipe = new Recipe(51, "https://www.pumpkinnspice.com/wp-content/uploads/2020/08/creamy-macaroni-cheese-4.jpg", [{"id": 20, "quantity": {"amount": 2, "unit": "c"}}, {"id": 8, "quantity": {"amount": 9, "unit": "oz"}}, {"id": 11, "quantity": { "amount": 1.5, "unit": "cup"}}, {"id": 225, "quantity": {"amount": 0.5, "unit": "lb"}}],
+      [{ "instruction": "Salt the water then boil", "number": 1},
+      {"instruction": "Pour the dry noodles into the pot", "number": 2},
+      {"instruction": "Boil noodles for 8 minutes", "number": 3},
+      {"instruction": "Make a roux with flour and butter", "number": 4},
+      {"instruction": "Add cheese to roux", "number": 5},
+      {"instruction": "Add cheesy roux to noodles and mix", "number": 6}],
+      "Macaroni and Cheese", ["comfort food", "dinner"]);
+
+
+    });
 
 
 });
