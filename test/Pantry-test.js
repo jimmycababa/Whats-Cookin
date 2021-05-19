@@ -47,14 +47,14 @@ describe("Pantry", () => {
 
     it('should store items', () => {
 
-    expect(pantry.item).to.deep.equal([{"ingredient": 17, "amount": 1}, {"ingredient": 107, "amount": 8}, { "ingredient": 99, "amount": 6}]);
+    expect(pantry.items).to.deep.equal([{"ingredient": 17, "amount": 1}, {"ingredient": 107, "amount": 8}, { "ingredient": 99, "amount": 6}]);
     });
 
     it('should store items by ingredient', () => {
 
-    expect(pantry.item[0].ingredient).to.equal(17);
-    expect(pantry.item[1].ingredient).to.equal(107);
-    expect(pantry.item[2].ingredient).to.equal(99);
+    expect(pantry.items[0].ingredient).to.equal(17);
+    expect(pantry.items[1].ingredient).to.equal(107);
+    expect(pantry.items[2].ingredient).to.equal(99);
     });
 
     it('should store items by amount', () => {
@@ -63,5 +63,12 @@ describe("Pantry", () => {
     expect(pantry.item[1].amount).to.equal(8);
     expect(pantry.item[2].amount).to.equal(6);
     });
+
+    it("should be able to find missing ingredients", () => {
+      pantry.findMissingIngredients(recipe);
+
+      //iterate over pantry.items to compare ids to the recipe, return the string of the name of the missing ingredients by iterating over data
+    expect(pantry.findMissingIngredients()).to.equal("Sorry, you will need to buy pasta, cheddar cheese, flour, butter to cook this recipe")
+    })
 
 });
