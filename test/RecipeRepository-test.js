@@ -47,6 +47,7 @@ describe('RecipeRepository', () => {
   })
 
   //Happy
+  //how to test multiples?
   it.skip('should filter recipes via tags', () => {
     recipeRepo.filterRecipesTags("dinner");
 
@@ -54,11 +55,11 @@ describe('RecipeRepository', () => {
   });
 
   //Sad
-    it.skip('should alert user when no recipe with that tag is found', () => {
-      recipeRepo.filterRecipesTags("tea");
-
-      expect(recipeRepo.filterRecipesTags("tea")).to.equal("Sorry, we could not find any recipes with the tea tag");
-    });
+    // it.skip('should alert user when no recipe with that tag is found', () => {
+    //   recipeRepo.filterRecipesTags("tea");
+    //
+    //   expect(recipeRepo.filterRecipesTags("tea")).to.equal("Sorry, we could not find any recipes with the tea tag");
+    // });
 
     //Happy
       it.skip('should filter favorite recipes via name or ingredients', () => {

@@ -7,6 +7,7 @@ describe("User", () => {
   let user, ingredient, recipe;
   beforeEach(() => {
     //ingredient = new Ingredient(1124, "jelly beans", 625);
+    //maybe call this instantiation with a pantry object instead of that array
     user = new User(55, "Sally HungryPerson", [{"ingredient": 1124, "amount": 3}, {"ingredient": 1127, "amount": 2}, {"ingredient": 14, "amount": 7}]);
     //});
     recipe = new Recipe(51, "https://www.pumpkinnspice.com/wp-content/uploads/2020/08/creamy-macaroni-cheese-4.jpg", [{"id": 20, "quantity": {"amount": 2, "unit": "c"}}, {"id": 8, "quantity": {"amount": 9, "unit": "oz"}}, {"id": 11, "quantity": { "amount": 1.5, "unit": "cup"}}, {"id": 225, "quantity": {"amount": 0.5, "unit": "lb"}}],
@@ -77,6 +78,7 @@ describe("User", () => {
     });
 
   //Happy
+  //Testing for multiples?
     it.skip('should filter favorite recipes via tags', () => {
       user.filterFavRecipesTags("dinner");
 
