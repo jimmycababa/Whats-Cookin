@@ -75,13 +75,18 @@ nav {
   flex-wrap: wrap;
   justify-content: space-evenly;
   margin: 0;
-  /* align-items: center; */
+  align-items: center;
 }
 
 .checkbox {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+}
+
+.submit {
+  /* margin: 0; */
+  width: 5%;
 }
 
 /*  Multiple Recipe Display */
@@ -124,8 +129,14 @@ nav {
 
 .current-recipe-img {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   align-items: center;
+  justify-content: center;
+}
+
+.food-image {
+  height: 80%;
+  width: auto;
 }
 
 .current-recipe-ing {
@@ -133,6 +144,7 @@ nav {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-right: 10%;
 }
 
 .current-recipe-inst {
