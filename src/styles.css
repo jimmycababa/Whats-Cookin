@@ -61,12 +61,35 @@ nav {
   flex-direction: column;
 }
 
-.filter {
+/* Filter View */
+/* .filter {
   display: flex;
   justify-content: center;
+} */
+
+.tag-selection {
+  width: 100%;
+  height: 7%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 0;
+  align-items: center;
 }
 
-/*  */
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.submit {
+  /* margin: 0; */
+  width: 5%;
+}
+
+/*  Multiple Recipe Display */
 .recipe-display {
   display: flex;
   height: 100%;
@@ -89,7 +112,14 @@ nav {
 
 .current-recipe-view {
   display: flex;
+  justify-content: center;
+}
+
+.current-recipe-card {
+  display: flex;
   flex-direction: column;
+  width: 75%;
+  height: 100%;
 }
 
 .current-recipe-name {
@@ -101,13 +131,21 @@ nav {
 .current-recipe-add-to-fav {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
+  justify-content: space-evenly;
+  /* margin-right: 5%; */
 }
 
 .current-recipe-img {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   align-items: center;
+  justify-content: center;
+}
+
+.food-image {
+  height: 80%;
+  width: auto;
 }
 
 .current-recipe-ing {
@@ -115,6 +153,7 @@ nav {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-right: 5%;
 }
 
 .current-recipe-inst {

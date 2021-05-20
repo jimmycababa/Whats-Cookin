@@ -25,8 +25,8 @@
         </nav>
     </header>
     <main>
-        <section id="filter" class="filter">
-          <form>
+        <!-- <section id="filter" class="filter"> -->
+          <!-- <form>
             <select name="food-tags">
               <option type="checkbox" name="tags" value="antipasti">Antipasti</option>
               <option type="checkbox" name="tags" value="starter">Starter</option>
@@ -50,8 +50,65 @@
               <option type="checkbox" name="tags" value="lunch">Lunch</option>
             </select>
             <input type="submit" value="search">
-          </form>
+          </form> -->
+          <form class='tag-selection'>
+            <!-- <select name="food-tags"> -->
+          <section>
+          <div class="checkbox">
+            <div>
+              <input type="checkbox" name="tags" value="antipasti">Antipasti</input>
+              <input type="checkbox" name="tags" value="starter">Starter</input>
+            </div>
+            <div>
+              <input type="checkbox" name="tags" value="snack">Snack</input>
+              <input type="checkbox" name="tags" value="appetizer">Appetizer</input>
+            </div>
+            <div>
+              <input type="checkbox" name="tags" value="antipasto">Antipasto</input>
+            <!-- </div>
+            <div class="checkbox"> -->
+              <input type="checkbox" name="tags" value="hor-d'oeuvre">Hor d'oeuvre</input>
+            </div>
+            <div>
+              <input type="checkbox" name="tags" value="lunch">Lunch</input>
+              <input type="checkbox" name="tags" value="main-course">Main Course</input>
+            </div>
+            <div>
+              <input type="checkbox" name="tags" value="main-dish">Main Dish</input>
+              <input type="checkbox" name="tags" value="dinner">Dinner</input>
+            </div>
+          </div>
+          <div class="checkbox">
+            <div>
+              <input type="checkbox" name="tags" value="sauce">Sauce</input>
+              <input type="checkbox" name="tags" value="side-dish">Side Dish</input>
+            </div>
+            <div>
+              <input type="checkbox" name="tags" value="brunch">Brunch</input>
+              <input type="checkbox" name="tags" value="morning-meal">Morning Meal</input>
+            </div>
+            <div>
+              <input type="checkbox" name="tags" value="salad">Salad</input>
+            <!-- </div>
+            <div class="checkbox"> -->
+              <input type="checkbox" name="tags" value="breakfast">Breakfast</input>
+            </div>
+            <div>
+              <input type="checkbox" name="tags" value="spread">Spread</input>
+              <input type="checkbox" name="tags" value="dip">Dip</input>
+            </div>
+            <div>
+              <input type="checkbox" name="tags" value="condiment">Condiment</input>
+              <input type="checkbox" name="tags" value="lunch">Lunch</input>
+            </div>
+          </div>
         </section>
+            <!-- </select> -->
+            <div class="submit">
+              <input type="submit" value="search">
+            </div>
+          </form>
+        <!-- </section> -->
       <section id="recipeDisplay" class="recipe-display hidden">
         <div class="recipe-card">
           <div>
@@ -60,47 +117,56 @@
           <article>Delicious Mac n Cheese</article>
         </div>
       </section>
-      <section id="currentRecipeView" class="current-recipe-view ">
-        <section class="current-recipe-name">
-          <h3>Loaded Chocolate Chip Pudding Cookie Cups</h3>
-        </section>
-        <section class="current-recipe-add-to-fav">
-          <button class="favorite-button">Favorite</button>
-        </section>
-        <section class="current-recipe-img">
-          <img src="https://spoonacular.com/recipeImages/595736-556x370.jpg"/>
-        </section>
-        <section class="current-recipe-ing">
-          <ul>
-            <li>Chocolate Chips</li>
-            <li>Brown Sugar</li>
-            <li>Vanilla Extract</li>
-            <li>Butter</li>
-            <li>Walnuts</li>
-            <li>Milk</li>
-            <li>Eggs</li>
-          </ul>
-        </section>
-        <section class="current-recipe-inst">
-          <ol>
-            <li>In a large mixing bowl, whisk together the dry ingredients (flour, pudding mix, soda and salt). Set aside.In a large mixing bowl of a stand mixer, cream butter for 30 seconds. Gradually add granulated sugar and brown sugar and cream until light and fluffy.</li>
-            <li>Add egg and vanilla and mix until combined.</li>
-            <li>Add dry ingredients and mix on low just until incorporated. Stir in chocolate chips.Scoop the dough into 1,5 tablespoon size balls and place on a plate or sheet. Cover with saran wrap and chill at least 2 hours or overnight.When ready to bake, preheat oven to 350 degrees.</li>
-            <li>Place the cookie dough balls into ungreased muffin pan. Sprinkle with sea salt.</li>
-            <li>Bake for 9 to 10 minutes, or until you see the edges start to brown</li>
-            <li>Remove the pan from the oven and let sit for 10 minutes before removing onto a cooling rack.Top with ice cream and a drizzle of chocolate sauce.</li>
-          </ol>
-        </section>
-        <section class="current-recipe-tags">
-          <p>antipasti</p>
-          <p>starter</p>
-          <p>snack</p>
-          <p>appetizer</p>
-          <p>antipasto</p>
-          <p>hor d'oeuvre</p>
-        </section>
-        <div class="current-recipe-add-to-cook">
+      <section id="currentRecipeView" class="current-recipe-view">
+        <div class="current-recipe-card">
+          <section class="current-recipe-name">
+            <h3>Loaded Chocolate Chip Pudding Cookie Cups</h3>
+          </section>
+          <section class="current-recipe-add-to-fav">
+            <button class="favorite-button">Favorite</button>
+            <div class="current-recipe-add-to-cook">
+              <button class="to-cook-button">Add to Weekly Meals</button>
+            </div>
+          </section>
+          <section class="current-recipe-img">
+            <section class="current-recipe-ing">
+              <ul>
+                <li>Chocolate Chips</li>
+                <li>Brown Sugar</li>
+                <li>Vanilla Extract</li>
+                <li>Butter</li>
+                <li>Walnuts</li>
+                <li>Milk</li>
+                <li>Eggs</li>
+              </ul>
+            </section>
+          <!-- <div class="food-image" -->
+            <img src="https://spoonacular.com/recipeImages/595736-556x370.jpg"/>
+          <!-- </div> -->
+          </section>
+          <section class="current-recipe-text">
+            <div class="current-recipe-inst">
+              <ol>
+                <li>In a large mixing bowl, whisk together the dry ingredients (flour, pudding mix, soda and salt). Set aside.In a large mixing bowl of a stand mixer, cream butter for 30 seconds. Gradually add granulated sugar and brown sugar and cream until light and fluffy.</li>
+                <li>Add egg and vanilla and mix until combined.</li>
+                <li>Add dry ingredients and mix on low just until incorporated. Stir in chocolate chips.Scoop the dough into 1,5 tablespoon size balls and place on a plate or sheet. Cover with saran wrap and chill at least 2 hours or overnight.When ready to bake, preheat oven to 350 degrees.</li>
+                <li>Place the cookie dough balls into ungreased muffin pan. Sprinkle with sea salt.</li>
+                <li>Bake for 9 to 10 minutes, or until you see the edges start to brown</li>
+                <li>Remove the pan from the oven and let sit for 10 minutes before removing onto a cooling rack.Top with ice cream and a drizzle of chocolate sauce.</li>
+              </ol>
+            </div>
+            <div class="current-recipe-tags">
+              <p class="tag">antipasti</p>
+              <p class="tag">starter</p>
+              <p class="tag">snack</p>
+              <p class="tag">appetizer</p>
+              <p class="tag">antipasto</p>
+              <p class="tag">hor d'oeuvre</p>
+            </div>
+          </section>
+        <!-- <div class="current-recipe-add-to-cook">
           <button class="to-cook-button">Add to Weekly Meals</button>
+        </div> -->
         </div>
       </section>
     </main>
