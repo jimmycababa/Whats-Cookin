@@ -43,4 +43,14 @@ const recipeDisplayView = document.getElementById("recipeDisplayView");
 const favRecipesView = document.getElementById("favRecipesView");
 const toCookRecipesView = document.getElementById("toCookRecipesView");
 
+
+// Event Listeners
+favoriteButton.addEventListener('click', showFavoriteRecipes);
+toCookButton.addEventListener('click', showRecipesToCook);
+submitNameIng.addEventListener('click', searchByNameIng);
+submitTagsButton.addEventListener('click', searchByTags);
+// addToFavoriteButton.addEventListener('click', );
+// addtoCookButton.addEventListener('click', );
+
+
 console.log('Hello world');
