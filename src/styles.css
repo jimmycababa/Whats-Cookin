@@ -75,12 +75,13 @@ nav {
   flex-wrap: wrap;
   justify-content: space-evenly;
   margin: 0;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .checkbox {
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
 }
 
 /*  Multiple Recipe Display */
