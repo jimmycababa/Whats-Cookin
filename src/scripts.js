@@ -53,4 +53,31 @@ submitTagsButton.addEventListener('click', searchByTags);
 // addtoCookButton.addEventListener('click', );
 
 
+// Functions
+function show(element) {
+  element.classList.remove('hidden');
+}
+
+function hide(element) {
+  element.classList.add('hidden');
+}
+
+// showFavoriteRecipes() {
+//   show(favRecipesView);
+//   hide(toCookRecipesView);
+// }
+//
+// showRecipesToCook() {
+//   show(toCookRecipesView);
+//   hide(favRecipesView);
+// }
+
+searchByNameIng() {
+
+}
+
+searchByTags() {
+
+}
+
 console.log('Hello world');
