@@ -24,19 +24,18 @@ describe('RecipeRepository', () => {
       recipeRepo = new RecipeRepository(recipes);
     })
 
-  it.skip('should be a function', () => {
+  it('should be a function', () => {
 
     expect(RecipeRepository).to.be.a('function');
   });
 
-  it.skip('should be an instances of RecipeRepository', () => {
+  it('should be an instances of RecipeRepository', () => {
 
     expect(recipeRepo).to.be.an.instanceof(RecipeRepository);
   });
 
-  it.skip('should store multiple recipes', () => {
+  it('should store multiple recipes', () => {
 
-    expect(recipeRepo.recipes).to.be.array();
     expect(recipeRepo.recipes).to.deep.equal([recipe1, recipe]);
   });
 
