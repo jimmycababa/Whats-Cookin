@@ -1,6 +1,6 @@
 class RecipeRepository {
-  constructor() {
-
+  constructor(recipesRepo) {
+    this.recipes = recipesRepo;
     // One class to get you started!
   }
 }
