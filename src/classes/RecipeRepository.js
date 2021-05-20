@@ -17,6 +17,18 @@ class RecipeRepository {
     })
     return matches
   }
+
+  filterRecipesByName(name) {
+    const match = this.recipes.filter(recipe => {
+      return recipe.name === name
+    });
+    if (!match.length) {
+      return `Sorry, we could not find any recipes with the name ${name}`
+    } else {
+
+      return match[0]
+    }
+  }
 }
 
 export default RecipeRepository;

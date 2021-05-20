@@ -47,62 +47,55 @@ describe('RecipeRepository', () => {
   })
 
   //Happy
-  //how to test multiples?
-  it('should filter recipes via tags', () => {
-    recipeRepo.filterRecipesTags("dinner");
-    expect(recipeRepo.filterRecipesTags("dinner")).to.deep.equal([recipe]);
-  });
-
-
   it('should filter recipes via multiple tags', () => {
     recipeRepo.filterRecipesTags("dinner", "protein");
 
     expect(recipeRepo.filterRecipesTags("dinner", "protein")).to.deep.equal([recipe1, recipe]);
   });
 
-  //Sad
+//Sad
   it('should not show duplicate recipes', () => {
     recipeRepo.filterRecipesTags("dinner", "protein");
 
     expect(recipeRepo.filterRecipesTags("dinner", "protein")).to.deep.equal([recipe1, recipe]);
   });
 
-    //Happy
-    it.skip('should filter favorite recipes via name or ingredients', () => {
-      recipeRepo.filterRecipesByName("Mac and Cheese");
+//Happy
+  it('should filter favorite recipes via name or ingredients', () => {
+    recipeRepo.filterRecipesByName("Macaroni and Cheese");
       //should return an array based on input
 
-      expect(recipeRepo.filterRecipesByName("Mac and Cheese")).to.equal([recipe]);
-    });
+    expect(recipeRepo.filterRecipesByName("Macaroni and Cheese")).to.deep.equal(recipe);
+  });
 
-    //Sad
-    it.skip('should alert the user when no recipe with that name is found', () => {
-      recipeRepo.filterRecipesByName("Crab legs");
-      //should return an array based on input
+//Sad
+  it('should alert the user when no recipe with that name is found', () => {
+    recipeRepo.filterRecipesByName("Crab legs");
+    //should return an array based on input
 
-      expect(recipeRepo.filterRecipesByName("Crab legs")).to.equal("Sorry, we could not find any recipes with the name Crab legs");
-    });
+    expect(recipeRepo.filterRecipesByName("Crab legs")).to.equal("Sorry, we could not find any recipes with the name Crab legs");
+  });
 
-    //Happy
-    it.skip('should filter favorite recipes via name or ingredients', () => {
-      //the line below is intentional! we can refactor later
-      //called as two separate functions for now
-      recipeRepo.filterRecipesByName("pasta");
+//Happy
+  it.skip('should filter favorite recipes via name or ingredients', () => {
+    //the line below is intentional! we can refactor later
+    //called as two separate functions for now
+    recipeRepo.filterRecipesByName("pasta");
 
-      //call this function in an if statement in filterFavRecipesByName!
-      expect(recipeRepo.filterRecipesByIngredients("pasta")).to.equal([recipe]);
-    });
+    //call this function in an if statement in filterFavRecipesByName!
+    expect(recipeRepo.filterRecipesByIngredients("pasta")).to.equal([recipe]);
+  });
 
     //Sad
     it.skip('should alert the user if no recipe with specified ingredients are found', () => {
       //the line below is intentional! we can refactor later
       //called as two separate functions for now
-      recipeRepo.filterRecipesByName(["milk", "corn"]);
+    recipeRepo.filterRecipesByName(["milk", "corn"]);
 
-              //call this function in an if statement in filterFavRecipesByName!
-                  //this string may have to change according to the dom to be something more generic
-      expect(recipeRepo.filterRecipesByIngredients("pasta")).to.equal("Sorry, we could not find any recipes with the ingredients milk and corn");
-    });
+    //call this function in an if statement in filterFavRecipesByName!
+    //this string may have to change according to the dom to be something more generic
+    expect(recipeRepo.filterRecipesByIngredients("pasta")).to.equal("Sorry, we could not find any recipes with the ingredients milk and corn");
+  });
 
 
 });
