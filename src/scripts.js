@@ -82,18 +82,18 @@ function searchByTags() {
 
 }
 
-// function showRecipes(recipes) {
-//   console.log(recipes);
-//   for (var i = 0; i < recipes.length; i++) {
-//     recipes[i];
-//     console.log(recipes[i]);
-//     let recipeCard = document.createElement("div");
-//     recipeCard.innerHTML = `<p>${recipes[i].name}</p>
-//     <img src=${recipes[i].image}>`
-//     recipeDisplay.appendChild(recipeCard)
-//   }
-// }
-// window.onload = showRecipes(recipeRepo.recipes);
+function showRecipes(recipes) {
+  console.log(recipes);
+  for (var i = 0; i < recipes.length; i++) {
+    recipes[i];
+    console.log(recipes[i]);
+    let recipeCard = document.createElement("div");
+    recipeCard.innerHTML = `<p>${recipes[i].name}</p>
+    <img src=${recipes[i].image}>`
+    recipeDisplay.appendChild(recipeCard)
+  }
+}
+window.onload = showRecipes(recipeRepo.recipes);
 
 
 console.log('Hello world');
