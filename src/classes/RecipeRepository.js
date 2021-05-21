@@ -5,14 +5,25 @@ class RecipeRepository {
 
   filterRecipesTags(...tags) {
     const matches = [];
-    this.recipes.filter(recipe => {
-      tags.forEach(tag => {
+    this.recipes.forEach(recipe => {
+      let foundtags = tags.forEach(tag => {
         if (!matches.includes(recipe) && recipe.tags.includes(tag)) {
-          matches.push(recipe);
-        }
+        matches.push(recipe);
+      }
       })
     })
+    console.log(matches)
     return matches
+    // return ingNames;
+    // const matches = [];
+    // this.recipes.filter(recipe => {
+    //   tags.forEach(tag => {
+    //     if (!matches.includes(recipe) && recipe.tags.includes(tag)) {
+    //       matches.push(recipe);
+    //     }
+    //   })
+    // })
+    // return matches
   }
 
   filterRecipesByName(input) {
@@ -28,7 +39,7 @@ class RecipeRepository {
 
   filterRecipesByIngredients(input) {
     const recipeMatch = this.recipes.filter(recipe => {
-      console.log(recipe.ingredients)
+      //console.log(recipe.ingredients)
       if (recipe.ingredients.includes(input))
       return recipe
     });
