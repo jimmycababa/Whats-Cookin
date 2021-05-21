@@ -17,7 +17,7 @@ const toCookButton = document.getElementById("toCookButton");
 const addToFavoriteButton = document.getElementById("addToFavoriteButton");
 const addtoCookButton = document.getElementById("addtoCookButton");
 // Submit Buttons
-const submitNameIng = document.getElementById("submitNameIngredient");
+const submitNameIng = document.getElementById("submitNameIng");
 const submitTagsButton = document.getElementById("submitTagsButton");
 //Tags
 const antipastiTag = document.getElementById("antipastiTag");
@@ -37,14 +37,14 @@ const morningMealTag = document.getElementById("morningMealTag");
 const dipTag = document.getElementById("dipTag");
 const breakfastTag = document.getElementById("breakfastTag");
 const spreadTag = document.getElementById("spreadTag");
-const condimentTag = document.getElementById("spreadTag");
 const saladTag = document.getElementById("saladTag");
+const condimentTag = document.getElementById("condimentTag");
 // Views
 const tagsView = document.getElementById("tagsView");
-const currentRecipeView = document.getElementById("currentRecipeView");
 const recipeDisplay = document.getElementById("recipeDisplay");
 const favRecipesView = document.getElementById("favRecipesView");
 const toCookRecipesView = document.getElementById("toCookRecipesView");
+const currentRecipeView = document.getElementById("currentRecipeView");
 
 
 // Event Listeners
@@ -65,38 +65,36 @@ function hide(element) {
   element.classList.add('hidden');
 }
 
-// showFavoriteRecipes() {
-//   show(favRecipesView);
-//   hide(toCookRecipesView);
-// }
-//
-// showRecipesToCook() {
-//   show(toCookRecipesView);
-//   hide(favRecipesView);
-// }
-
-function showRecipes(recipes) {
-  console.log(recipes);
-  for (var i = 0; i < recipes.length; i++) {
-    recipes[i];
-    console.log(recipes[i]);
-    let recipeCard = document.createElement("div");
-    recipeCard.innerHTML = `<p>${recipes[i].name}</p>
-    <img src=${recipes[i].image}>`
-    recipeDisplay.appendChild(recipeCard)
-  }
+function showFavoriteRecipes() {
+  show(favRecipesView);
+  hide(toCookRecipesView);
 }
-window.onload = showRecipes(recipeRepo.recipes);
-// window.onload = function showRecipes() {
-//             console.log('The Script will load now.');
-//         }
 
-// searchByNameIng() {
-//
+function showRecipesToCook() {
+  show(toCookRecipesView);
+  hide(favRecipesView);
+}
+
+function searchByNameIng() {
+
+}
+
+function searchByTags() {
+
+}
+
+// function showRecipes(recipes) {
+//   console.log(recipes);
+//   for (var i = 0; i < recipes.length; i++) {
+//     recipes[i];
+//     console.log(recipes[i]);
+//     let recipeCard = document.createElement("div");
+//     recipeCard.innerHTML = `<p>${recipes[i].name}</p>
+//     <img src=${recipes[i].image}>`
+//     recipeDisplay.appendChild(recipeCard)
+//   }
 // }
-//
-// searchByTags() {
-//
-// }
+// window.onload = showRecipes(recipeRepo.recipes);
+
 
 console.log('Hello world');
