@@ -1,10 +1,7 @@
 class RecipeRepository {
   constructor(recipes) {
     this.recipes = recipes;
-    // One class to get you started!
   }
-
-//do we need an instantiate recipe method?
 
   filterRecipesTags(...tags) {
     const matches = [];
@@ -18,15 +15,27 @@ class RecipeRepository {
     return matches
   }
 
-  filterRecipesByName(name) {
-    const match = this.recipes.filter(recipe => {
-      return recipe.name === name
+  filterRecipesByName(input) {
+    const recipeMatch = this.recipes.filter(recipe => {
+        return recipe.name === input
     });
-    if (!match.length) {
-      return `Sorry, we could not find any recipes with the name ${name}`
+    if (!recipeMatch[0]) {
+      return this.filterRecipesByIngredients(input)
     } else {
+      return recipeMatch[0]
+    }
+  }
 
-      return match[0]
+  filterRecipesByIngredients(input) {
+    const recipeMatch = this.recipes.filter(recipe => {
+      console.log(recipe.ingredients)
+      if (recipe.ingredients.includes(input))
+      return recipe
+    });
+    if (!recipeMatch[0]) {
+      return "Sorry, we could not find any recipes to match your search"
+    } else {
+      return recipeMatch[0]
     }
   }
 }
