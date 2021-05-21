@@ -15,6 +15,7 @@ class Recipe {
         return ingred.id === ing.id
       })
       ing.name = foundIngred.name;
+      //this unshift may cause problems
       ingNames.unshift(ing.name);
     })
     console.log(this.ingredients)

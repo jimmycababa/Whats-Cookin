@@ -12,18 +12,8 @@ class RecipeRepository {
       }
       })
     })
-    console.log(matches)
+    //console.log(matches)
     return matches
-    // return ingNames;
-    // const matches = [];
-    // this.recipes.filter(recipe => {
-    //   tags.forEach(tag => {
-    //     if (!matches.includes(recipe) && recipe.tags.includes(tag)) {
-    //       matches.push(recipe);
-    //     }
-    //   })
-    // })
-    // return matches
   }
 
   filterRecipesByName(input) {
@@ -39,7 +29,9 @@ class RecipeRepository {
 
   filterRecipesByIngredients(input) {
     const recipeMatch = this.recipes.filter(recipe => {
-      //console.log(recipe.ingredients)
+      //console.log(input)
+      //how do I compare this.ingredients to the ingredients data aka API?
+    //console.log(recipe.ingredients)
       if (recipe.ingredients.includes(input))
       return recipe
     });
