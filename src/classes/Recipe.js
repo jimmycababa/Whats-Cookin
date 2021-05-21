@@ -7,29 +7,33 @@ class Recipe {
     this.instructions = instructions;
     this.ingredients = ingredients;
   }
-  findIngredientNames(ingList) {
-    let peshes = [];
-    let names = ingList.filter((ing) => {
-      this.ingredients.forEach(peshe => {
-        if (peshe.id === ing.id) {
-          peshes.push(ing.name);
-        }
+
+  findIngredientNames(ingData) {
+    let ingNames = [];
+    this.ingredients.forEach((ing) => {
+      let foundIngred = ingData.find(ingred => {
+        return ingred.id === ing.id
       })
+      ing.name = foundIngred.name;
+      ingNames.unshift(ing.name);
     })
-    return peshes;
+    return ingNames;
   }
+
   getPriceOfIngredients(ingCostList) {
-    let peshesCost = [];
+    let ingredsCost = [];
     let names = ingCostList.filter((ing) => {
-      this.ingredients.forEach(peshe => {
-        if (peshe.id === ing.id) {
-        let costIng = (peshe.quantity.amount * ing.estimatedCostInCents) / 100;
-          peshesCost.push(costIng);
+      this.ingredients.forEach(ingred => {
+        if (ingred.id === ing.id) {
+        let costIng = (ingred.quantity.amount * ing.estimatedCostInCents) / 100;
+          ingred.cost = costIng;
+          ingredsCost.push(costIng);
         }
       })
     })
-    return peshesCost;
+    return ingredsCost;
   }
+
   retrieveInstructions() {
     return this.instructions;
   }
