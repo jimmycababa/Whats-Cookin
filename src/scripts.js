@@ -2,9 +2,12 @@ import './styles.css';
 import apiCalls from './apiCalls';
 
 // Import classes
-import  Recipe  from "../src/classes/Recipe";
-import  Ingredient  from '../src/classes/Ingredient';
-import  RecipeRepository  from '../src/classes/RecipeRepository';
+import  Recipe  from "./classes/Recipe";
+import  Ingredient  from './classes/Ingredient';
+import  RecipeRepository  from './classes/RecipeRepository';
+import  recipeData  from './data/recipes.js';
+
+let recipeRepo = new RecipeRepository(recipeData);
 
 // DOM !!!
 // Buttons
@@ -39,16 +42,16 @@ const saladTag = document.getElementById("saladTag");
 // Views
 const tagsView = document.getElementById("tagsView");
 const currentRecipeView = document.getElementById("currentRecipeView");
-const recipeDisplayView = document.getElementById("recipeDisplayView");
+const recipeDisplay = document.getElementById("recipeDisplay");
 const favRecipesView = document.getElementById("favRecipesView");
 const toCookRecipesView = document.getElementById("toCookRecipesView");
 
 
 // Event Listeners
-favoriteButton.addEventListener('click', showFavoriteRecipes);
-toCookButton.addEventListener('click', showRecipesToCook);
-submitNameIng.addEventListener('click', searchByNameIng);
-submitTagsButton.addEventListener('click', searchByTags);
+// favoriteButton.addEventListener('click', showFavoriteRecipes);
+// toCookButton.addEventListener('click', showRecipesToCook);
+// submitNameIng.addEventListener('click', searchByNameIng);
+// submitTagsButton.addEventListener('click', searchByTags);
 // addToFavoriteButton.addEventListener('click', );
 // addtoCookButton.addEventListener('click', );
 
@@ -72,12 +75,28 @@ function hide(element) {
 //   hide(favRecipesView);
 // }
 
-searchByNameIng() {
-
+function showRecipes(recipes) {
+  console.log(recipes);
+  for (var i = 0; i < recipes.length; i++) {
+    recipes[i];
+    console.log(recipes[i]);
+    let recipeCard = document.createElement("div");
+    recipeCard.innerHTML = `<p>${recipes[i].name}</p>
+    <img src=${recipes[i].image}>`
+    recipeDisplay.appendChild(recipeCard)
+  }
 }
+window.onload = showRecipes(recipeRepo.recipes);
+// window.onload = function showRecipes() {
+//             console.log('The Script will load now.');
+//         }
 
-searchByTags() {
-
-}
+// searchByNameIng() {
+//
+// }
+//
+// searchByTags() {
+//
+// }
 
 console.log('Hello world');
