@@ -63,38 +63,38 @@ describe('RecipeRepository', () => {
 //Happy
   it('should filter favorite recipes via name or ingredients', () => {
     recipeRepo.filterRecipesByName("Macaroni and Cheese");
-      //should return an array based on input
 
     expect(recipeRepo.filterRecipesByName("Macaroni and Cheese")).to.deep.equal(recipe);
   });
 
+//more edge cases? can check if the recipe names include one of the search terms?
+
 //Sad
   it('should alert the user when no recipe with that name is found', () => {
     recipeRepo.filterRecipesByName("Crab legs");
-    //should return an array based on input
 
-    expect(recipeRepo.filterRecipesByName("Crab legs")).to.equal("Sorry, we could not find any recipes with the name Crab legs");
+    expect(recipeRepo.filterRecipesByName("Crab legs")).to.equal("Sorry, we could not find any recipes to match your search");
   });
 
 //Happy
-  it.skip('should filter favorite recipes via name or ingredients', () => {
+  it('should filter favorite recipes via name or ingredients', () => {
     //the line below is intentional! we can refactor later
     //called as two separate functions for now
     recipeRepo.filterRecipesByName("pasta");
 
     //call this function in an if statement in filterFavRecipesByName!
-    expect(recipeRepo.filterRecipesByIngredients("pasta")).to.equal([recipe]);
+    expect(recipeRepo.filterRecipesByIngredients("pasta")).to.deep.equal(recipe);
   });
 
-    //Sad
-    it.skip('should alert the user if no recipe with specified ingredients are found', () => {
-      //the line below is intentional! we can refactor later
-      //called as two separate functions for now
+  //Sad
+  it.skip('should alert the user if no recipe with specified ingredients are found', () => {
+    //the line below is intentional! we can refactor later
+    //called as two separate functions for now
     recipeRepo.filterRecipesByName(["milk", "corn"]);
 
-    //call this function in an if statement in filterFavRecipesByName!
-    //this string may have to change according to the dom to be something more generic
-    expect(recipeRepo.filterRecipesByIngredients("pasta")).to.equal("Sorry, we could not find any recipes with the ingredients milk and corn");
+  //call this function in an if statement in filterFavRecipesByName!
+  //this string may have to change according to the dom to be something more generic
+    expect(recipeRepo.filterRecipesByIngredients("pasta")).to.equal("Sorry, we could not find any recipes to match your search");
   });
 
 
