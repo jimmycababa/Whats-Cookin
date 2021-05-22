@@ -17,16 +17,21 @@ class Recipe {
     // })
   }
 
+//REFACTOR ALL OF THESE TO CORRESPOND WITH THIS.fullIngredients
   createFullIngredients(ingredientsData) {
     //const fullIngredients = [];
     this.ingredients.forEach(ingredient => {
       ingredientsData.forEach(namedIng => {
         if(ingredient.id === namedIng.id) {
+          // console.log(namedIng.id)
+          // console.log(ingredient.id)
           this.fullIngredients.push({id: ingredient.id, name: namedIng.name, estimatedCostInCents: namedIng.estimatedCostInCents, quantity: ingredient.quantity})
+          //console.log(this.fullIngredients)
         }
       })
     })
-
+    console.log(this.fullIngredients)
+    return this.fullIngredients
   }
 
   findIngredientNames(ingData) {
@@ -39,7 +44,7 @@ class Recipe {
       //this unshift may cause problems
       ingNames.unshift(ing.name);
     })
-    console.log(this.ingredients)
+    //console.log(this.ingredients)
     return ingNames;
   }
 

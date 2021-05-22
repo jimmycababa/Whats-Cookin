@@ -1,3 +1,6 @@
+import ingredientsData from "../data/ingredients";
+import Recipe from "./Recipe";
+
 class RecipeRepository {
   constructor(recipes) {
     this.recipes = recipes;
@@ -27,20 +30,29 @@ class RecipeRepository {
     }
   }
 
-  filterRecipesByIngredients(input, ingredientsData) {
-    const recipeMatch = this.recipes.filter(recipe => {
-
-      recipe.ingredients.map(ingredient => {
-        ingredient
-        return
+  filterRecipesByIngredients(input) {
+    const recipeMatches = [];
+    this.recipes.forEach(recipe => {
+      //console.log(recipe)
+      //const ingredientsSomething =
+       console.log(recipe.createFullIngredients(ingredientsData));
+        //console.log(ingredientsData)
+        recipe.fullIngredients.forEach(ingredient => {
+          //console.log(recipe.fullIngredients)
+          //console.log(`full ingredients: ${ingredient.name}`)
+          //console.log(`input: ${input}`)
+          //console.log(ingredient)
+          if (input === ingredient.name) {
+            recipeMatches.push(ingredient)
+          }
+        })
+        console.log(recipeMatches)
+      return recipeMatches
       })
-      if (recipe.ingredients.includes(input))
-      return recipe
-    });
-    if (!recipeMatch[0]) {
+    if (!recipeMatches[0]) {
       return "Sorry, we could not find any recipes to match your search"
     } else {
-      return recipeMatch[0]
+      return recipeMatches
     }
   }
 }
