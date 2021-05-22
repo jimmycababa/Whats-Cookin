@@ -73,6 +73,10 @@ window.addEventListener("load", function() {
 
 
 // Functions
+function preventDefault() {
+  event.preventDefault()
+}
+
 function show(element) {
   element.classList.remove('hidden');
 }
@@ -100,19 +104,21 @@ function showRecipes(recipes) {
 }
 
 function showAllRecipes() {
-  show(recipeDisplay);
   hide(toCookRecipesView);
   hide(favRecipesView);
   hide(currentRecipeView);
+  preventDefault();
+  show(recipeDisplay);
 
   showRecipes(recipeRepo.recipes);
 }
 
 function searchByNameIng() {
-  show(recipeDisplay);
   hide(toCookRecipesView);
   hide(favRecipesView);
   hide(currentRecipeView);
+  preventDefault();
+  show(recipeDisplay);
   // filterNameIngInput.value"
   // Will take the value from the user tags selection
   //That value will pass as an "Argument" through:
@@ -124,10 +130,11 @@ function searchByNameIng() {
 
 
 function searchByTags() {
-  show(recipeDisplay);
   hide(toCookRecipesView);
   hide(favRecipesView);
   hide(currentRecipeView);
+  preventDefault();
+  show(recipeDisplay);
   console.log("search by tags here")
   const checkBoxMatches = checkBoxes.filter(checkBox => {
     console.log(checkBox.checked)
