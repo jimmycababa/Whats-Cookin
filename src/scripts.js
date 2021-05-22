@@ -136,7 +136,7 @@ function searchByTags() {
   preventDefault();
   show(recipeDisplay);
 
-  console.log("search by tags here")
+  //console.log("search by tags here")
 
   let checkBoxMatches = [];
   checkBoxes.forEach(checkBox => {
@@ -147,7 +147,7 @@ function searchByTags() {
     }
   })
 
-  console.log(checkBoxMatches)
+  //console.log(checkBoxMatches)
   const tagMatches = recipeRepo.filterRecipesTags(checkBoxMatches);
   //console.log(tagMatches)
   showRecipes(tagMatches)

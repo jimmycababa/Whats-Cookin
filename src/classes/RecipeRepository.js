@@ -6,16 +6,22 @@ class RecipeRepository {
     this.recipes = recipes;
   }
 
-  filterRecipesTags(...tags) {
+  filterRecipesTags(tags) {
+    //console.log("recipe filterRecipesTags here")
     const matches = [];
+    console.log(tags)
     this.recipes.forEach(recipe => {
+      //console.log("Recipes")
       let foundtags = tags.forEach(tag => {
-        if (!matches.includes(recipe) && recipe.tags.includes(tag)) {
+        // if (!matches.includes(recipe) && recipe.tags.includes(tag)) {
+        //console.log(tag)
+        //console.log(recipe.tags.includes(tag))
+        if (recipe.tags.includes(tag)) {
         matches.push(recipe);
       }
       })
     })
-    //console.log(matches)
+    console.log(matches)
     return matches
   }
 
