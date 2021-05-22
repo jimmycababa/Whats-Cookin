@@ -27,11 +27,13 @@ class RecipeRepository {
     }
   }
 
-  filterRecipesByIngredients(input) {
+  filterRecipesByIngredients(input, ingredientsData) {
     const recipeMatch = this.recipes.filter(recipe => {
-      //console.log(input)
-      //how do I compare this.ingredients to the ingredients data aka API?
-    //console.log(recipe.ingredients)
+
+      recipe.ingredients.map(ingredient => {
+        ingredient
+        return
+      })
       if (recipe.ingredients.includes(input))
       return recipe
     });

@@ -6,6 +6,27 @@ class Recipe {
     this.tags = tags;
     this.instructions = instructions;
     this.ingredients = ingredients;
+    this.fullIngredients = [];
+    // this.fullIngredients = this.createFullIngredients(ingredientsData);
+    // this.fullIngredients = this.ingredients.map(ingredient => {
+    //   ingredientsData.forEach(namedIng => {
+    //     if(ingredient.id === namedIng.id) {
+    //
+    //     }
+    //   })
+    // })
+  }
+
+  createFullIngredients(ingredientsData) {
+    //const fullIngredients = [];
+    this.ingredients.forEach(ingredient => {
+      ingredientsData.forEach(namedIng => {
+        if(ingredient.id === namedIng.id) {
+          this.fullIngredients.push({id: ingredient.id, name: namedIng.name, estimatedCostInCents: namedIng.estimatedCostInCents, quantity: ingredient.quantity})
+        }
+      })
+    })
+
   }
 
   findIngredientNames(ingData) {
