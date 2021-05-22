@@ -1,11 +1,18 @@
 import './styles.css';
 import apiCalls from './apiCalls';
 
+<<<<<<< HEAD
 // Import classes
 import  Recipe  from "./classes/Recipe";
 import  Ingredient  from './classes/Ingredient';
 import  RecipeRepository  from './classes/RecipeRepository';
 import  recipeData  from './data/recipes.js';
+=======
+//We will be instantiating Recipes here from data
+//recipeRepo instantiation here
+// kicking off the whole project
+//recipe.createFullIngredients()
+>>>>>>> 914115b51da5c6d8dedd268034f88223e63bd9dd
 
 let recipeRepo = new RecipeRepository(recipeData);
 
