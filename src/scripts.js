@@ -135,14 +135,27 @@ function searchByTags() {
   hide(currentRecipeView);
   preventDefault();
   show(recipeDisplay);
+
   console.log("search by tags here")
-  const checkBoxMatches = checkBoxes.filter(checkBox => {
-    console.log(checkBox.checked)
-    return checkBox.checked
+
+  let checkBoxMatches = [];
+  checkBoxes.forEach(checkBox => {
+    //console.log(checkBox)
+    if(checkBox.checked) {
+
+      checkBoxMatches.push(checkBox.value)
+    }
   })
 
-  const tagMatches = recipeRepo.filterRecipesTags(checkboxMatches);
+  console.log(checkBoxMatches)
+  const tagMatches = recipeRepo.filterRecipesTags(checkBoxMatches);
+  //console.log(tagMatches)
   showRecipes(tagMatches)
+  // const checkBoxMatches = checkBoxes.filter(checkBox => {
+  //   console.log(checkBox.checked)
+  //   return checkBox.checked
+  }
+
 
 
 
@@ -153,7 +166,7 @@ function searchByTags() {
   // Is gonna iterate and filter all the recipes repository info and will return a new array based the "User conditions".
   // That new array will be the ARGUMENT for  "showRecipes();"
   //showRecipes();
-}
+
 
 function displayCurrentRecipe(currentRecipe) {
       currentRecipeView.innerHTML +=
