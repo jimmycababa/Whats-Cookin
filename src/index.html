@@ -16,120 +16,96 @@
     <header>
       <h1>What's Cookin'</h1>
         <form class="search">
-          <input type="search" placeholder="Search..." name="search"/>
-          <input type="submit" value="search"/>
+          <input type="search" placeholder="Search..." name="search" id="filterNameIngInput"/>
+          <button type="submit" value="search" id="submitNameIng"/>search</button>
         </form>
         <nav>
-          <button class="favorite-button">Favorite Recipes</button>
-          <button class="to-cook-button">Recipes to Cook</button>
+          <button class="favorite-button" id="toCookButton">Favorite Recipes</button>
+          <button class="to-cook-button" id="favoriteButton">Recipes to Cook</button>
+          <button class="all-recipes-button" id="allRecipesButton">All Recipes</button>
         </nav>
     </header>
     <main>
-        <!-- <section id="filter" class="filter"> -->
-          <!-- <form>
-            <select name="food-tags">
-              <option type="checkbox" name="tags" value="antipasti">Antipasti</option>
-              <option type="checkbox" name="tags" value="starter">Starter</option>
-              <option type="checkbox" name="tags" value="snack">Snack</option>
-              <option type="checkbox" name="tags" value="appetizer">Appetizer</option>
-              <option type="checkbox" name="tags" value="antipasto">Antipasto</option>
-              <option type="checkbox" name="tags" value="hor-d'oeuvre">Hor d'oeuvre</option>
-              <option type="checkbox" name="tags" value="lunch">Lunch</option>
-              <option type="checkbox" name="tags" value="main-course">Main Course</option>
-              <option type="checkbox" name="tags" value="main-dish">Main Dish</option>
-              <option type="checkbox" name="tags" value="dinner">Dinner</option>
-              <option type="checkbox" name="tags" value="sauce">Sauce</option>
-              <option type="checkbox" name="tags" value="side-dish">Side Dish</option>
-              <option type="checkbox" name="tags" value="brunch">Brunch</option>
-              <option type="checkbox" name="tags" value="morning-meal">Morning Meal</option>
-              <option type="checkbox" name="tags" value="salad">Salad</option>
-              <option type="checkbox" name="tags" value="breakfast">Breakfast</option>
-              <option type="checkbox" name="tags" value="spread">Spread</option>
-              <option type="checkbox" name="tags" value="dip">Dip</option>
-              <option type="checkbox" name="tags" value="condiment">Condiment</option>
-              <option type="checkbox" name="tags" value="lunch">Lunch</option>
-            </select>
-            <input type="submit" value="search">
-          </form> -->
-          <form class='tag-selection'>
-            <!-- <select name="food-tags"> -->
-          <section>
+      <!-- Tags View -->
+      <section id="tagsView">
+        <form class="tag-selection">
           <div class="checkbox">
             <div>
-              <input type="checkbox" name="tags" value="antipasti">Antipasti</input>
-              <input type="checkbox" name="tags" value="starter">Starter</input>
+              <input type="checkbox" name="tags" value="antipasti" id="antipastiTag">Antipasti</input>
+              <input type="checkbox" name="tags" value="starter" id="starterTag">Starter</input>
             </div>
             <div>
-              <input type="checkbox" name="tags" value="snack">Snack</input>
-              <input type="checkbox" name="tags" value="appetizer">Appetizer</input>
+              <input type="checkbox" name="tags" value="snack" id="snackTag">Snack</input>
+              <input type="checkbox" name="tags" value="appetizer" id="appetizerTag">Appetizer</input>
             </div>
             <div>
-              <input type="checkbox" name="tags" value="antipasto">Antipasto</input>
-            <!-- </div>
-            <div class="checkbox"> -->
-              <input type="checkbox" name="tags" value="hor-d'oeuvre">Hor d'oeuvre</input>
+              <input type="checkbox" name="tags" value="antipasto" id="antipastoTag">Antipasto</input>
+              <input type="checkbox" name="tags" value="hor-d'oeuvre" id="horDoeuvreTag">Hor d'oeuvre</input>
             </div>
             <div>
-              <input type="checkbox" name="tags" value="lunch">Lunch</input>
-              <input type="checkbox" name="tags" value="main-course">Main Course</input>
+              <input type="checkbox" name="tags" value="lunch" id="lunchTag">Lunch</input>
+              <input type="checkbox" name="tags" value="main-course" id="mainCourseTag">Main Course</input>
             </div>
             <div>
-              <input type="checkbox" name="tags" value="main-dish">Main Dish</input>
-              <input type="checkbox" name="tags" value="dinner">Dinner</input>
+              <input type="checkbox" name="tags" value="main-dish" id="mainDishTag">Main Dish</input>
+              <input type="checkbox" name="tags" value="dinner" id="dinnerTag">Dinner</input>
             </div>
           </div>
           <div class="checkbox">
             <div>
-              <input type="checkbox" name="tags" value="sauce">Sauce</input>
-              <input type="checkbox" name="tags" value="side-dish">Side Dish</input>
+              <input type="checkbox" name="tags" value="sauce" id="sauceTag">Sauce</input>
+              <input type="checkbox" name="tags" value="side-dish" id="sideDishTag">Side Dish</input>
             </div>
             <div>
-              <input type="checkbox" name="tags" value="brunch">Brunch</input>
-              <input type="checkbox" name="tags" value="morning-meal">Morning Meal</input>
+              <input type="checkbox" name="tags" value="brunch" id="brunchTag">Brunch</input>
+              <input type="checkbox" name="tags" value="morning-meal" id="morningMealTag">Morning Meal</input>
             </div>
             <div>
-              <input type="checkbox" name="tags" value="salad">Salad</input>
-            <!-- </div>
-            <div class="checkbox"> -->
-              <input type="checkbox" name="tags" value="breakfast">Breakfast</input>
+              <input type="checkbox" name="tags" value="salad" id="saladTag">Salad</input>
+              <input type="checkbox" name="tags" value="breakfast" id="breakfastTag">Breakfast</input>
             </div>
             <div>
-              <input type="checkbox" name="tags" value="spread">Spread</input>
-              <input type="checkbox" name="tags" value="dip">Dip</input>
+              <input type="checkbox" name="tags" value="spread" id="spreadTag">Spread</input>
+              <input type="checkbox" name="tags" value="dip" id="dipTag">Dip</input>
             </div>
             <div>
-              <input type="checkbox" name="tags" value="condiment">Condiment</input>
-              <input type="checkbox" name="tags" value="lunch">Lunch</input>
+              <button type="checkbox" name="tags" value="condiment" id="condimentTag">condimentTag</button>
             </div>
           </div>
-        </section>
-            <!-- </select> -->
-            <div class="submit">
-              <input type="submit" value="search">
-            </div>
-          </form>
-        <!-- </section> -->
-      <section id="recipeDisplay" class="recipe-display hidden">
+          <div class="submit">
+            <button type="submit" value="search" id="submitTagsButton">search</button>
+          </div>
+        </form>
+      </section>
+      <!-- Recipe Display view -->
+      <section class="recipe-display hidden" id="recipeDisplay">
         <div class="recipe-card">
           <div>
           <img class="recipe-image" src="https://www.pumpkinnspice.com/wp-content/uploads/2020/08/creamy-macaroni-cheese-4.jpg"/>
         </div>
-          <article>Delicious Mac n Cheese</article>
+          <article>Recipe Name</article>
         </div>
       </section>
-      <section id="currentRecipeView" class="current-recipe-view">
-        <div class="current-recipe-card">
+      <!-- Favorite Recipe View -->
+      <section class="fav-recipes-view" id="favRecipesView">
+      </section>
+      <!-- To cook Recipe View -->
+      <section class="to-cook-recipes-view hidden" id="toCookRecipesView">
+      </section>
+      <!-- Current Recipe View -->
+      <section class="current-recipe-view" id="currentRecipeView">
+        <div class="current-recipe-card" id="currentRecipeCard">
           <section class="current-recipe-name">
             <h3>Loaded Chocolate Chip Pudding Cookie Cups</h3>
           </section>
           <section class="current-recipe-add-to-fav">
-            <button class="favorite-button">Favorite</button>
+            <button class="add-favorite-button" id="addToFavoriteButton">Favorite</button>
             <div class="current-recipe-add-to-cook">
-              <button class="to-cook-button">Add to Weekly Meals</button>
+              <button class="add-to-cook-button" id="addtoCookButton">Add to Weekly Meals</button>
             </div>
           </section>
           <section class="current-recipe-img">
-            <section class="current-recipe-ing">
+            <div class="current-recipe-ing">
               <ul>
                 <li>Chocolate Chips</li>
                 <li>Brown Sugar</li>
@@ -139,22 +115,22 @@
                 <li>Milk</li>
                 <li>Eggs</li>
               </ul>
-            </section>
-          <!-- <div class="food-image" -->
-            <img src="https://spoonacular.com/recipeImages/595736-556x370.jpg"/>
-          <!-- </div> -->
-          </section>
-          <section class="current-recipe-text">
-            <div class="current-recipe-inst">
-              <ol>
-                <li>In a large mixing bowl, whisk together the dry ingredients (flour, pudding mix, soda and salt). Set aside.In a large mixing bowl of a stand mixer, cream butter for 30 seconds. Gradually add granulated sugar and brown sugar and cream until light and fluffy.</li>
-                <li>Add egg and vanilla and mix until combined.</li>
-                <li>Add dry ingredients and mix on low just until incorporated. Stir in chocolate chips.Scoop the dough into 1,5 tablespoon size balls and place on a plate or sheet. Cover with saran wrap and chill at least 2 hours or overnight.When ready to bake, preheat oven to 350 degrees.</li>
-                <li>Place the cookie dough balls into ungreased muffin pan. Sprinkle with sea salt.</li>
-                <li>Bake for 9 to 10 minutes, or until you see the edges start to brown</li>
-                <li>Remove the pan from the oven and let sit for 10 minutes before removing onto a cooling rack.Top with ice cream and a drizzle of chocolate sauce.</li>
-              </ol>
             </div>
+            <div class="food-image"
+              <img src="https://spoonacular.com/recipeImages/595736-556x370.jpg"/>
+            </div>
+            </section>
+            <section class="current-recipe-text">
+              <div class="current-recipe-inst">
+                <ol>
+                  <li>In a large mixing bowl, whisk together the dry ingredients (flour, pudding mix, soda and salt). Set aside.In a large mixing bowl of a stand mixer, cream butter for 30 seconds. Gradually add granulated sugar and brown sugar and cream until light and fluffy.</li>
+                  <li>Add egg and vanilla and mix until combined.</li>
+                  <li>Add dry ingredients and mix on low just until incorporated. Stir in chocolate chips.Scoop the dough into 1,5 tablespoon size balls and place on a plate or sheet. Cover with saran wrap and chill at least 2 hours or overnight.When ready to bake, preheat oven to 350 degrees.</li>
+                  <li>Place the cookie dough balls into ungreased muffin pan. Sprinkle with sea salt.</li>
+                  <li>Bake for 9 to 10 minutes, or until you see the edges start to brown</li>
+                  <li>Remove the pan from the oven and let sit for 10 minutes before removing onto a cooling rack.Top with ice cream and a drizzle of chocolate sauce.</li>
+                </ol>
+              </div>
             <div class="current-recipe-tags">
               <p class="tag">antipasti</p>
               <p class="tag">starter</p>
@@ -164,16 +140,8 @@
               <p class="tag">hor d'oeuvre</p>
             </div>
           </section>
-        <!-- <div class="current-recipe-add-to-cook">
-          <button class="to-cook-button">Add to Weekly Meals</button>
-        </div> -->
         </div>
       </section>
     </main>
   </body>
-  <script type="text/javascript" src="RecipeRepository.js"></script>
-  <script type="text/javascript" src="Recipe.js"></script>
-  <script type="text/javascript" src="Ingredient.js"></script>
-  <script type="text/javascript" src="User.js"></script>
-  <script type="text/javascript" src="scripts.js"></script>
 </html>
