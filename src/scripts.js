@@ -7,9 +7,16 @@ import  Recipe  from "./classes/Recipe";
 import  Ingredient  from './classes/Ingredient';
 import  RecipeRepository  from './classes/RecipeRepository';
 import  recipeData  from './data/recipes.js';
+import  ingredientsData  from './data/ingredients.js';
+
+let instantiatedRecipes = [];
+
+//We will be instantiating Recipes here from data
+//event listener on window load for this function?
 
 
-let recipeRepo = new RecipeRepository(recipeData);
+//let recipeRepo = new RecipeRepository(recipeData);
+let recipeRepo = new RecipeRepository(instantiatedRecipes);
 
 // DOM !!!
 // Buttons
@@ -54,6 +61,9 @@ const currentRecipeCard = document.getElementById("currentRecipeCard");
 allRecipesButton.addEventListener('click', showAllRecipes);
 submitNameIng.addEventListener('click', searchByNameIng);
 submitTagsButton.addEventListener('click', searchByTags);
+
+window.addEventListener("load", function() {
+  instantiateRecipes(recipeData)});
 // favoriteButton.addEventListener('click', showFavoriteRecipes);
 // addToFavoriteButton.addEventListener('click', );
 // toCookButton.addEventListener('click', showRecipesToCook);
@@ -123,7 +133,7 @@ function searchByTags() {
 }
 
 function displayCurrentRecipe(currentRecipe) {
-      let currentRecipeHTML +=
+      currentRecipeView.innerHTML +=
           `<div class="current-recipe-card" id="currentRecipeCard">
           <section class="current-recipe-name">
             <h3>${currentRecipe.name}</h3>
@@ -185,6 +195,14 @@ function showCurrentRecipe() {
 
 
 // window.onload = showRecipes(recipeRepo.recipes);
-
+function instantiateRecipes(recipeData) {
+  recipeData.map(recipe => {
+    recipe = new Recipe(recipe.id, recipe.image, recipe.ingredients, recipe.instructions, recipe.name, recipe.tags)
+    recipe.createFullIngredients(ingredientsData)
+    console.log(recipe)
+    return instantiatedRecipes.push(recipe)
+  })
+}
+//recipe.createFullIngredients()
 
 console.log('Hello world');
