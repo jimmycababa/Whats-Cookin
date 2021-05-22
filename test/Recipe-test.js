@@ -42,7 +42,7 @@ describe("Recipe", () => {
       "name": "flour",
       "estimatedCostInCents": 324
     }];
-    ingredient = new Ingredient(1123, "eggs", 472);
+    //ingredient = new Ingredient(1123, "eggs", 472);
     recipe = new Recipe(51, "https://www.pumpkinnspice.com/wp-content/uploads/2020/08/creamy-macaroni-cheese-4.jpg", [{
       "id": 35,
       "quantity": {
@@ -125,26 +125,42 @@ describe("Recipe", () => {
     {"id":77, "quantity": {"amount": 9,"unit": "oz"}}, {"id": 21, "quantity": {"amount": 1.5, "unit": "cup"}}, {"id": 18,"quantity": {"amount": 0.5,"unit": "lb"}}])
   });
 
+  it('should store full ingredients data for the recipe', () => {
+    recipe.createFullIngredients(ingredientsData);
+
+    expect(recipe.fullIngredients).to.deep.equal([{"id": 35, "name": "flour", "estimatedCostInCents": 324, "quantity": {"amount": 2, "unit": "c"}},
+    {"id":77, "name": "butter", "estimatedCostInCents": 203, "quantity": {"amount": 9,"unit": "oz"}}, {"id": 21, "name": "cheddar cheese", "estimatedCostInCents": 430, "quantity": {"amount": 1.5, "unit": "cup"}}, {"id": 18, "name": "pasta", "estimatedCostInCents": 150, "quantity": {"amount": 0.5,"unit": "lb"}}])
+  });
+
+
   it("should be able to determine the names of ingredients needed", () => {
     recipe.findIngredientNames(ingredientsData);
-    //should this method update the ingredient array by instantiating an ingredient class?
-    //instantiate Ingredient with relevant data - if we rebuild our Ingredient?
-    //perhaps:
-      //iterates over ingredients.js, forEach object check the id number against this.ingredients
-      // and add a name property and a cost property to this.ingredients objects?
 
-    //edit this assertion statement later to check if this.ingredients objects have the required data?
     expect(recipe.findIngredientNames(ingredientsData)).to.deep.equal(["pasta", "cheddar cheese", "butter", "flour"]);
+  });
+
+  it("should update ingredient names", () => {
+    recipe.findIngredientNames(ingredientsData);
+
+    expect(recipe.ingredients[0].name).to.equal("flour");
+    expect(recipe.ingredients[1].name).to.equal("butter");
+    expect(recipe.ingredients[2].name).to.equal("cheddar cheese");
+    expect(recipe.ingredients[3].name).to.equal("pasta");
   });
 
     it("should calculate estimated cost in cents of ingredients", () => {
       recipe.getPriceOfIngredients(ingredientsData);
-      //populates a property with an array of costs?
-      //retrieves these costs from the this.ingredients array of objects
 
-      //update this assertion statement to check that it updates this.ingredients
-      expect(recipe.getPriceOfIngredients(ingredientsData)).to.deep.equal([0.75, 6.45, 18.27, 6.48])
-    });
+      expect(recipe.getPriceOfIngredients(ingredientsData)).to.deep.equal([0.75, 6.45, 18.27, 6.48]);
+
+    it("should update ingredient costs", () => {
+      recipe.getPriceOfIngredients(ingredientsData);
+
+        expect(recipe.ingredients[0].cost).to.equal(6.48);
+        expect(recipe.ingredients[1].cost).to.equal(18.27);
+        expect(recipe.ingredients[2].cost).to.equal(6.45);
+        expect(recipe.ingredients[3].cost).to.equal(0.75);
+      });
 
     it("should return the instructions needed to cook recipe", () => {
       recipe.retrieveInstructions();
@@ -156,5 +172,6 @@ describe("Recipe", () => {
       {"instruction": "Add cheese to roux", "number": 5},
       {"instruction": "Add cheesy roux to noodles and mix", "number": 6}
     ]);
+  });
   });
 });
