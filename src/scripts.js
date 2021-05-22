@@ -49,6 +49,8 @@ const breakfastTag = document.getElementById("breakfastTag");
 const spreadTag = document.getElementById("spreadTag");
 const saladTag = document.getElementById("saladTag");
 const condimentTag = document.getElementById("condimentTag");
+
+const checkBoxes = document.querySelectorAll("input[type=checkbox]");
 // Views
 const tagsView = document.getElementById("tagsView");
 const recipeDisplay = document.getElementById("recipeDisplay");
@@ -88,8 +90,11 @@ function showRecipes(recipes) {
 
     // console.log(recipes[i]);
     let recipeCard = document.createElement("div");
-    recipeCard.innerHTML = `<p>${recipes[i].name}</p>
-    <img src=${recipes[i].image}>`
+    recipeCard.innerHTML =
+    `
+    <p>${recipes[i].name}</p>
+    <img src=${recipes[i].image}>
+    `
     recipeDisplay.appendChild(recipeCard)
   }
 }
@@ -123,13 +128,24 @@ function searchByTags() {
   hide(toCookRecipesView);
   hide(favRecipesView);
   hide(currentRecipeView);
+  console.log("search by tags here")
+  const checkBoxMatches = checkBoxes.filter(checkBox => {
+    console.log(checkBox.checked)
+    return checkBox.checked
+  })
+
+  const tagMatches = recipeRepo.filterRecipesTags(checkboxMatches);
+  showRecipes(tagMatches)
+
+
+
   // " checkboxes value"
   // this query will take the value from the user selections
   //That value will pass an "Argument" through:
   // recipeRepository.""???findIngredientNames(""filterNameIngInput.value)
   // Is gonna iterate and filter all the recipes repository info and will return a new array based the "User conditions".
   // That new array will be the ARGUMENT for  "showRecipes();"
-  showRecipes();
+  //showRecipes();
 }
 
 function displayCurrentRecipe(currentRecipe) {
@@ -199,7 +215,7 @@ function instantiateRecipes(recipeData) {
   recipeData.map(recipe => {
     recipe = new Recipe(recipe.id, recipe.image, recipe.ingredients, recipe.instructions, recipe.name, recipe.tags)
     recipe.createFullIngredients(ingredientsData)
-    console.log(recipe)
+    //console.log(recipe)
     return instantiatedRecipes.push(recipe)
   })
 }

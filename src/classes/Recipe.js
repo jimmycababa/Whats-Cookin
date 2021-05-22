@@ -30,7 +30,7 @@ class Recipe {
         }
       })
     })
-    console.log(this.fullIngredients)
+    //console.log(this.fullIngredients)
     return this.fullIngredients
   }
 
