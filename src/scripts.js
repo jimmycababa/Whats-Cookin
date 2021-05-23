@@ -209,11 +209,6 @@ function showCurrentRecipe() {
  // console.log(evet.target.id  )
 
 
-
-
-
-
-
   // recipeRepo.recipes.find(recipe => {
   //   console.log(event.target)
   //   // event target closest for class
@@ -234,11 +229,6 @@ function showCurrentRecipe() {
   // displayCurrentRecipe()
 };
 
-function getTarget(events) {
-  let events = event.target.id
-  console.log(target)
-  showCurrentRecipe()
-}
 
 // function showFavoriteRecipes() {
 //   show(favRecipesView);
