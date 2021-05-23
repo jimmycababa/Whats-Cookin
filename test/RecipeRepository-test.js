@@ -7,7 +7,7 @@ describe('RecipeRepository', () => {
   let recipeRepo, recipe, recipe1, recipes;
 
   beforeEach(() => {
-    recipe = new Recipe(51, "https://www.pumpkinnspice.com/wp-content/uploads/2020/08/creamy-macaroni-cheese-4.jpg", [{"id": 18, "quantity": {"amount": 2, "unit": "c"}}, {"id": 8, "quantity": {"amount": 9, "unit": "oz"}}, {"id": 11, "quantity": { "amount": 1.5, "unit": "cup"}}, {"id": 225, "quantity": {"amount": 0.5, "unit": "lb"}}],
+    recipe = new Recipe(51, "https://www.pumpkinnspice.com/wp-content/uploads/2020/08/creamy-macaroni-cheese-4.jpg", [{"id": 18, "quantity": {"amount": 2, "unit": "c"}}, {"id": 8, "quantity": {"amount": 9, "unit": "oz"}}, {"id": 11, "quantity": { "amount": 1.5, "unit": "cup"}}, {"id": 77, "quantity": {"amount": 0.5, "unit": "lb"}}],
       [{ "instruction": "Salt the water then boil", "number": 1},
         {"instruction": "Pour the dry noodles into the pot", "number": 2},
         {"instruction": "Boil noodles for 8 minutes", "number": 3},
@@ -16,7 +16,7 @@ describe('RecipeRepository', () => {
         {"instruction": "Add cheesy roux to noodles and mix", "number": 6}],
       "Macaroni and Cheese", ["comfort food", "dinner", "protein"]);
 
-    recipe1 = new Recipe(32, "https://www.spendwithpennies.com/wp-content/uploads/2021/04/Fried-Eggs-SpendWithPennies-4.jpg", [{"id": 2, "quantity": {"amount": 2, "unit": "small"}}, {"id": 8, "quantity": {"amount": 2, "unit": "tbs"}}], [{ "instruction": "Melt butter in pan", "number": 1},
+    recipe1 = new Recipe(32, "https://www.spendwithpennies.com/wp-content/uploads/2021/04/Fried-Eggs-SpendWithPennies-4.jpg", [{"id": 2, "quantity": {"amount": 2, "unit": "small"}}, {"id": 77, "quantity": {"amount": 2, "unit": "tbs"}}], [{ "instruction": "Melt butter in pan", "number": 1},
       {"instruction": "Crack the eggs in the pan", "number": 2},
       {"instruction": "Flip eggs once and cook to desired firmness", "number": 3}], "Fried Eggs in Butter", ["breakfast", "protein"]);
 
@@ -76,8 +76,14 @@ describe('RecipeRepository', () => {
     expect(recipeRepo.filterRecipesByIngredients("pasta")).to.deep.equal([recipe]);
   });
 
+  it('should filter favorite recipes via name or ingredients to return multiple recipes', () => {
+    recipeRepo.filterRecipesByName("butter");
+
+    expect(recipeRepo.filterRecipesByIngredients("butter")).to.deep.equal([recipe1, recipe]);
+  });
+
   it('should alert the user if no recipe with specified ingredients are found', () => {
-    recipeRepo.filterRecipesByName(["milk", "corn"]);
+    recipeRepo.filterRecipesByName("milk");
 
     expect(recipeRepo.filterRecipesByIngredients("milk")).to.equal("Sorry, we could not find any recipes to match your search");
   });
