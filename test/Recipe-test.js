@@ -190,12 +190,13 @@ describe("Recipe", () => {
     expect(recipe.ingredients[3].name).to.equal("pasta");
   });
 
-    it.skip("should calculate estimated cost in cents of ingredients", () => {
+  it("should calculate estimated cost in cents of ingredients", () => {
       recipe.getPriceOfIngredients(testIngredientsData);
 
-      expect(recipe.getPriceOfIngredients(testIngredientsData)).to.deep.equal([0.75, 6.45, 18.27, 6.48]);
+      expect(recipe.getPriceOfIngredients(testIngredientsData)).to.deep.equal([0.75, 6.45, 18.27, 6.48])
+    });
 
-    it.skip("should update ingredient costs", () => {
+  it("should update ingredient costs", () => {
       recipe.getPriceOfIngredients(testIngredientsData);
 
         expect(recipe.ingredients[0].cost).to.equal(6.48);
@@ -204,7 +205,7 @@ describe("Recipe", () => {
         expect(recipe.ingredients[3].cost).to.equal(0.75);
       });
 
-    it.skip("should return the instructions needed to cook recipe", () => {
+    it("should return the instructions needed to cook recipe", () => {
       recipe.retrieveInstructions();
 
       expect(recipe.retrieveInstructions()).to.deep.equal([{ "instruction": "Salt the water then boil", "number": 1},
@@ -214,6 +215,5 @@ describe("Recipe", () => {
       {"instruction": "Add cheese to roux", "number": 5},
       {"instruction": "Add cheesy roux to noodles and mix", "number": 6}
     ]);
-  });
   });
 });
