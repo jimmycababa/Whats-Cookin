@@ -236,12 +236,12 @@ function showCurrentRecipe() {
   recipeRepo.recipes.find(recipe => {
     //console.log(event.target)
     //event target closest for class
-    //event target.id also? 
+    //event target.id also?
     match = event.target.closest(`${recipe.name}`)
 
     return match
   }
-  })
+  )
     // displayCurrentRecipe(recipe)
   // recipeRepo.recipes.find(recipe => {
   //   console.log(event.target.id)
