@@ -19,21 +19,22 @@ class Recipe {
 
 //REFACTOR ALL OF THESE TO CORRESPOND WITH THIS.fullIngredients
   createFullIngredients(ingredientsData) {
-    //const fullIngredients = [];
+    let fullIngredients = [];
     this.ingredients.forEach(ingredient => {
       ingredientsData.forEach(namedIng => {
         if(ingredient.id === namedIng.id) {
           // console.log(namedIng.id)
           // console.log(ingredient.id)
           this.fullIngredients.push({id: ingredient.id, name: namedIng.name, estimatedCostInCents: namedIng.estimatedCostInCents, quantity: ingredient.quantity})
+          fullIngredients.push({id: ingredient.id, name: namedIng.name, estimatedCostInCents: namedIng.estimatedCostInCents, quantity: ingredient.quantity})
           //console.log(this.fullIngredients)
         }
       })
     })
-    //console.log(this.fullIngredients)
-    return this.fullIngredients
+    return fullIngredients
   }
 
+//is this ingredients data?
   findIngredientNames(ingData) {
     let ingNames = [];
     this.ingredients.forEach((ing) => {
