@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import  RecipeRepository  from '../src/classes/RecipeRepository';
 import  Recipe  from "../src/classes/Recipe";
 //import ingredientsData from "../src/data/ingredients";
-//import new ingredients data test file
+import  testIngredientsData   from "./test-Data";
 
 describe('RecipeRepository', () => {
   let recipeRepo, recipe, recipe1, recipes;
@@ -23,7 +23,7 @@ describe('RecipeRepository', () => {
 
       recipes = [recipe1, recipe];
 
-      recipeRepo = new RecipeRepository(recipes, ingredientsData);
+      recipeRepo = new RecipeRepository(recipes, testIngredientsData);
     })
 
   it('should be a function', () => {
@@ -48,8 +48,14 @@ describe('RecipeRepository', () => {
     expect(recipeRepo.recipes[1]).to.be.an.instanceof(Recipe);
   })
 
+  it("should store ingredients", () => {
+
+    expect(recipeRepo.ingredients).to.deep.equal(testIngredientsData)
+  })
+
+
   //Happy
-  it('should filter recipes via multiple tags', () => {
+  it.skip('should filter recipes via multiple tags', () => {
     recipeRepo.filterRecipesTags(["dinner", "protein"]);
 
     expect(recipeRepo.filterRecipesTags("dinner", "protein")).to.deep.equal([recipe1, recipe]);
@@ -72,14 +78,14 @@ describe('RecipeRepository', () => {
 //more edge cases? can check if the recipe names include one of the search terms?
 
 //Sad
-  it('should alert the user when no recipe with that name is found', () => {
+  it.skip('should alert the user when no recipe with that name is found', () => {
     recipeRepo.filterRecipesByName("Crab legs");
 
     expect(recipeRepo.filterRecipesByName("Crab legs")).to.equal("Sorry, we could not find any recipes to match your search");
   });
 
 //Happy
-  it('should filter favorite recipes via name or ingredients', () => {
+  it.skip('should filter favorite recipes via name or ingredients', () => {
     //the line below is intentional! we can refactor later
     //called as two separate functions for now
     recipeRepo.filterRecipesByName("pasta");
