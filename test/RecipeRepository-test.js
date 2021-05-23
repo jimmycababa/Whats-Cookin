@@ -64,33 +64,23 @@ describe('RecipeRepository', () => {
   });
 
 //more edge cases? can check if the recipe names include one of the search terms?
-//we may not need this sad path test
-  it.skip('should alert the user when no recipe with that name is found', () => {
+  it('should alert the user when no recipe with that name is found', () => {
     recipeRepo.filterRecipesByName("Crab legs");
 
     expect(recipeRepo.filterRecipesByName("Crab legs")).to.equal("Sorry, we could not find any recipes to match your search");
   });
 
-//Happy
-  it('should filter favorite recipes via name or ingredients', () => {
-    //the line below is intentional! we can refactor later
-    //called as two separate functions for now
-    recipeRepo.filterRecipesByName("pasta");
-    console.log("this is the test", recipeRepo.filterRecipesByName("pasta"))
 
-    //call this function in an if statement in filterFavRecipesByName!
+  it('should filter favorite recipes via name or ingredients', () => {
+    recipeRepo.filterRecipesByName("pasta");
+
     expect(recipeRepo.filterRecipesByIngredients("pasta")).to.deep.equal([recipe]);
   });
 
-  //Sad
-  it.skip('should alert the user if no recipe with specified ingredients are found', () => {
-    //the line below is intentional! we can refactor later
-    //called as two separate functions for now
+  it('should alert the user if no recipe with specified ingredients are found', () => {
     recipeRepo.filterRecipesByName(["milk", "corn"]);
 
-  //call this function in an if statement in filterFavRecipesByName!
-  //this string may have to change according to the dom to be something more generic
-    expect(recipeRepo.filterRecipesByIngredients("pasta")).to.equal("Sorry, we could not find any recipes to match your search");
+    expect(recipeRepo.filterRecipesByIngredients("milk")).to.equal("Sorry, we could not find any recipes to match your search");
   });
 
 
