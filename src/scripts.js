@@ -203,6 +203,22 @@ function showCurrentRecipe() {
   hide(toCookRecipesView);
   hide(favRecipesView);
   show(currentRecipeView);
+  console.log(event.target.id);
+  preventDefault();
+  // if (event.target.id)
+  let target = event.target.id;
+  recipeRepo.recipes.find(recipes => {
+    // console.log(recipes.id);
+    console.log(target)
+    let numId = recipes.id;
+    let stringNum =  numId.toString();
+    // let parseNum = num.toString(recipes.id);
+    let test1 = stringNum === target;
+    console.log(test1);
+    return test1
+
+  });
+
   // getTarget();
 // I need to incorporate and event.target to tell the browser in the card that we make click get the value of that card
  // if (evet.target.id === recipeRepo.recipes.id)
