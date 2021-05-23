@@ -94,6 +94,7 @@ nav {
   display: flex;
   height: 100%;
   width: 100%;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly;
 }
@@ -144,8 +145,8 @@ nav {
 }
 
 .food-image {
-  height: 80%;
-  width: auto;
+  height: 25vw;
+  width: 25vw;
 }
 
 .current-recipe-ing {
