@@ -34,4 +34,4 @@ const testIngredientsData = [{
   "estimatedCostInCents": 324
 }];
 
-  export default testIngredientsData;
+export default testIngredientsData;
