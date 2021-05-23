@@ -1,14 +1,13 @@
 import { expect } from 'chai';
 import  RecipeRepository  from '../src/classes/RecipeRepository';
 import  Recipe  from "../src/classes/Recipe";
-//import ingredientsData from "../src/data/ingredients";
 import  testIngredientsData   from "./test-Data";
 
 describe('RecipeRepository', () => {
   let recipeRepo, recipe, recipe1, recipes;
 
   beforeEach(() => {
-    recipe = new Recipe(51, "https://www.pumpkinnspice.com/wp-content/uploads/2020/08/creamy-macaroni-cheese-4.jpg", [{"id": 20, "quantity": {"amount": 2, "unit": "c"}}, {"id": 8, "quantity": {"amount": 9, "unit": "oz"}}, {"id": 11, "quantity": { "amount": 1.5, "unit": "cup"}}, {"id": 225, "quantity": {"amount": 0.5, "unit": "lb"}}],
+    recipe = new Recipe(51, "https://www.pumpkinnspice.com/wp-content/uploads/2020/08/creamy-macaroni-cheese-4.jpg", [{"id": 18, "quantity": {"amount": 2, "unit": "c"}}, {"id": 8, "quantity": {"amount": 9, "unit": "oz"}}, {"id": 11, "quantity": { "amount": 1.5, "unit": "cup"}}, {"id": 225, "quantity": {"amount": 0.5, "unit": "lb"}}],
       [{ "instruction": "Salt the water then boil", "number": 1},
       {"instruction": "Pour the dry noodles into the pot", "number": 2},
       {"instruction": "Boil noodles for 8 minutes", "number": 3},
@@ -41,7 +40,6 @@ describe('RecipeRepository', () => {
     expect(recipeRepo.recipes).to.deep.equal([recipe1, recipe]);
   });
 
-//is this test really necessary? how are we going to instantiate these recipes?
   it("should store instances of Recipes", () => {
 
     expect(recipeRepo.recipes[0]).to.be.an.instanceof(Recipe);
@@ -53,31 +51,20 @@ describe('RecipeRepository', () => {
     expect(recipeRepo.ingredients).to.deep.equal(testIngredientsData)
   })
 
-
-  //Happy
-  it.skip('should filter recipes via multiple tags', () => {
+  it('should filter recipes via multiple tags', () => {
     recipeRepo.filterRecipesTags(["dinner", "protein"]);
 
-    expect(recipeRepo.filterRecipesTags("dinner", "protein")).to.deep.equal([recipe1, recipe]);
+    expect(recipeRepo.filterRecipesTags(["dinner", "protein"])).to.deep.equal([recipe1, recipe, recipe]);
   });
 
-//Sad
-  // it('should not show duplicate recipes', () => {
-  //   recipeRepo.filterRecipesTags(["dinner", "protein"]);
-  //
-  //   expect(recipeRepo.filterRecipesTags(["dinner", "protein"])).to.deep.equal([recipe1, recipe]);
-  // });
-
-//Happy
   it('should filter favorite recipes via name or ingredients', () => {
     recipeRepo.filterRecipesByName("Macaroni and Cheese");
 
-    expect(recipeRepo.filterRecipesByName("Macaroni and Cheese")).to.deep.equal(recipe);
+    expect(recipeRepo.filterRecipesByName("Macaroni and Cheese")).to.deep.equal([recipe]);
   });
 
 //more edge cases? can check if the recipe names include one of the search terms?
-
-//Sad
+//we may not need this sad path test
   it.skip('should alert the user when no recipe with that name is found', () => {
     recipeRepo.filterRecipesByName("Crab legs");
 
@@ -85,13 +72,14 @@ describe('RecipeRepository', () => {
   });
 
 //Happy
-  it.skip('should filter favorite recipes via name or ingredients', () => {
+  it('should filter favorite recipes via name or ingredients', () => {
     //the line below is intentional! we can refactor later
     //called as two separate functions for now
     recipeRepo.filterRecipesByName("pasta");
+    console.log("this is the test", recipeRepo.filterRecipesByName("pasta"))
 
     //call this function in an if statement in filterFavRecipesByName!
-    expect(recipeRepo.filterRecipesByIngredients("pasta")).to.deep.equal(recipe);
+    expect(recipeRepo.filterRecipesByIngredients("pasta")).to.deep.equal([recipe]);
   });
 
   //Sad
