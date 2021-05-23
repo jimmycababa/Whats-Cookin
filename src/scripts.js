@@ -215,6 +215,7 @@ function showCurrentRecipe() {
     // let parseNum = num.toString(recipes.id);
     let test1 = stringNum === target;
     console.log(test1);
+    displayCurrentRecipe(recipes);
     return test1
 
   });
