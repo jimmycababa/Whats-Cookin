@@ -1,12 +1,7 @@
 import { expect } from 'chai';
 import  RecipeRepository  from '../src/classes/RecipeRepository';
 import  Recipe  from "../src/classes/Recipe";
-<<<<<<< HEAD
-// import ingredientsData from "../src/data/ingredients";
-//import new ingredients data test file
-=======
 import  testIngredientsData   from "./test-Data";
->>>>>>> a8c52216df73611cbfd3605bfe6e6bccac9468f4
 
 describe('RecipeRepository', () => {
   let recipeRepo, recipe, recipe1, recipes;

@@ -149,6 +149,7 @@ function searchByTags() {
 function displayCurrentRecipe(currentRecipe) {
     currentRecipeView.innerHTML = "";
     //console.log("displayCurrentRecipe ")
+    console.log(currentRecipe.instructions);
     console.log(currentRecipe)
       currentRecipeView.innerHTML =
           `<div class="current-recipe-card" id="currentRecipeCard">
@@ -174,7 +175,7 @@ function displayCurrentRecipe(currentRecipe) {
           <section class="current-recipe-text">
             <div class="current-recipe-inst">
               <ol>
-                <li>${currentRecipe.findIngredientNames(ingredientsData)}</li>
+                <li>${currentRecipe.retrieveInstructions()}</li>
               </ol>
             </div>
             <div class="current-recipe-tags">
@@ -184,7 +185,6 @@ function displayCurrentRecipe(currentRecipe) {
             </div>
           </section>
         </div>`
-
     // currentRecipeView.innerHTML = currentRecipeHTML;
     //currentRecipeView.appendChild(currentRecipeView)
 };
@@ -203,18 +203,18 @@ function showCurrentRecipe() {
   hide(toCookRecipesView);
   hide(favRecipesView);
   show(currentRecipeView);
-  console.log(event.target.id);
+  // console.log(event.target.id);
   preventDefault();
   // if (event.target.id)
   let target = event.target.id;
   recipeRepo.recipes.find(recipes => {
     // console.log(recipes.id);
-    console.log(target)
+    // console.log(target)
     let numId = recipes.id;
     let stringNum =  numId.toString();
     // let parseNum = num.toString(recipes.id);
     let test1 = stringNum === target;
-    console.log(test1);
+    // console.log(test1);
     displayCurrentRecipe(recipes);
     return test1
 
