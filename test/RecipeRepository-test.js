@@ -9,21 +9,21 @@ describe('RecipeRepository', () => {
   beforeEach(() => {
     recipe = new Recipe(51, "https://www.pumpkinnspice.com/wp-content/uploads/2020/08/creamy-macaroni-cheese-4.jpg", [{"id": 18, "quantity": {"amount": 2, "unit": "c"}}, {"id": 8, "quantity": {"amount": 9, "unit": "oz"}}, {"id": 11, "quantity": { "amount": 1.5, "unit": "cup"}}, {"id": 225, "quantity": {"amount": 0.5, "unit": "lb"}}],
       [{ "instruction": "Salt the water then boil", "number": 1},
-      {"instruction": "Pour the dry noodles into the pot", "number": 2},
-      {"instruction": "Boil noodles for 8 minutes", "number": 3},
-      {"instruction": "Make a roux with flour and butter", "number": 4},
-      {"instruction": "Add cheese to roux", "number": 5},
-      {"instruction": "Add cheesy roux to noodles and mix", "number": 6}],
+        {"instruction": "Pour the dry noodles into the pot", "number": 2},
+        {"instruction": "Boil noodles for 8 minutes", "number": 3},
+        {"instruction": "Make a roux with flour and butter", "number": 4},
+        {"instruction": "Add cheese to roux", "number": 5},
+        {"instruction": "Add cheesy roux to noodles and mix", "number": 6}],
       "Macaroni and Cheese", ["comfort food", "dinner", "protein"]);
 
-      recipe1 = new Recipe(32, "https://www.spendwithpennies.com/wp-content/uploads/2021/04/Fried-Eggs-SpendWithPennies-4.jpg", [{"id": 2, "quantity": {"amount": 2, "unit": "small"}}, {"id": 8, "quantity": {"amount": 2, "unit": "tbs"}}], [{ "instruction": "Melt butter in pan", "number": 1},
+    recipe1 = new Recipe(32, "https://www.spendwithpennies.com/wp-content/uploads/2021/04/Fried-Eggs-SpendWithPennies-4.jpg", [{"id": 2, "quantity": {"amount": 2, "unit": "small"}}, {"id": 8, "quantity": {"amount": 2, "unit": "tbs"}}], [{ "instruction": "Melt butter in pan", "number": 1},
       {"instruction": "Crack the eggs in the pan", "number": 2},
       {"instruction": "Flip eggs once and cook to desired firmness", "number": 3}], "Fried Eggs in Butter", ["breakfast", "protein"]);
 
-      recipes = [recipe1, recipe];
+    recipes = [recipe1, recipe];
 
-      recipeRepo = new RecipeRepository(recipes, testIngredientsData);
-    })
+    recipeRepo = new RecipeRepository(recipes, testIngredientsData);
+  })
 
   it('should be a function', () => {
 
@@ -63,7 +63,6 @@ describe('RecipeRepository', () => {
     expect(recipeRepo.filterRecipesByName("Macaroni and Cheese")).to.deep.equal([recipe]);
   });
 
-//more edge cases? can check if the recipe names include one of the search terms?
   it('should alert the user when no recipe with that name is found', () => {
     recipeRepo.filterRecipesByName("Crab legs");
 
