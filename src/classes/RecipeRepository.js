@@ -28,42 +28,42 @@ class RecipeRepository {
 
   filterRecipesByName(input) {
     const recipeMatch = this.recipes.filter(recipe => {
-        return recipe.name === input
+        return recipe.name  === input;
     });
-    if (!recipeMatch[0]) {
+    if (!recipeMatch) {
       // console.log(input)
       return this.filterRecipesByIngredients(input)
     } else {
-      return recipeMatch[0]
+      return recipeMatch
     }
   }
 
   filterRecipesByIngredients(input) {
-    //console.log(input)
+    console.log(input)
     let matches = [];
-    let match = this.ingredients.find(ingredient => {
-      //console.log(this.ingredients)
+    let match = this.ingredients.filter(ingredient => {
+      console.log(this.ingredients)
       //console.log(ingredient.name)
 
-      return ingredient.name.includes(input)
+      return ingredients.name.includes(input)
       //return
     })
     //console.log(this.recipes[0].ingredients)
-    this.recipes.filter(recipe => {
-      recipe.ingredients.forEach(ingredient => {
-        if (ingredient.id === match.id) {
-          matches.push(recipe)
-        }
-        //matches.push(ingredient.id === match.id)
-      })
-      //console.log(matches)
-      return matches
-    })
-    //console.log(match)
-     //iterate over the this.recipes, and then iterate over this.recipe.ingredients to check and see if the input is included in any of the recipe ingredients arrays
-     //object.assign will concatenate two objects with overlapping data
-     //compare each ingredient array of objects with the input value (string)
-      //return match
+    // this.recipes.filter(recipe => {
+    //   recipe.ingredients.forEach(ingredient => {
+    //     if (ingredient.name === match.name) {
+    //       matches.push(recipe)
+    //     }
+    //     //matches.push(ingredient.id === match.id)
+    //   })
+    //   //console.log(matches)
+    //   return matches
+    // })
+    // console.log(match)
+    //  iterate over the this.recipes, and then iterate over this.recipe.ingredients to check and see if the input is included in any of the recipe ingredients arrays
+    //  object.assign will concatenate two objects with overlapping data
+    //  compare each ingredient array of objects with the input value (string)
+    //   return match
     }
     //c
 // iterate over this.Recipes
