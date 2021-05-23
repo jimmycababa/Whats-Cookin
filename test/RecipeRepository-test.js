@@ -1,6 +1,8 @@
 import { expect } from 'chai';
 import  RecipeRepository  from '../src/classes/RecipeRepository';
 import  Recipe  from "../src/classes/Recipe";
+//import ingredientsData from "../src/data/ingredients";
+//import new ingredients data test file
 
 describe('RecipeRepository', () => {
   let recipeRepo, recipe, recipe1, recipes;
@@ -21,7 +23,7 @@ describe('RecipeRepository', () => {
 
       recipes = [recipe1, recipe];
 
-      recipeRepo = new RecipeRepository(recipes);
+      recipeRepo = new RecipeRepository(recipes, ingredientsData);
     })
 
   it('should be a function', () => {
@@ -48,17 +50,17 @@ describe('RecipeRepository', () => {
 
   //Happy
   it('should filter recipes via multiple tags', () => {
-    recipeRepo.filterRecipesTags("dinner", "protein");
+    recipeRepo.filterRecipesTags(["dinner", "protein"]);
 
     expect(recipeRepo.filterRecipesTags("dinner", "protein")).to.deep.equal([recipe1, recipe]);
   });
 
 //Sad
-  it('should not show duplicate recipes', () => {
-    recipeRepo.filterRecipesTags("dinner", "protein");
-
-    expect(recipeRepo.filterRecipesTags("dinner", "protein")).to.deep.equal([recipe1, recipe]);
-  });
+  // it('should not show duplicate recipes', () => {
+  //   recipeRepo.filterRecipesTags(["dinner", "protein"]);
+  //
+  //   expect(recipeRepo.filterRecipesTags(["dinner", "protein"])).to.deep.equal([recipe1, recipe]);
+  // });
 
 //Happy
   it('should filter favorite recipes via name or ingredients', () => {
