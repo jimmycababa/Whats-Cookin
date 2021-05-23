@@ -174,13 +174,14 @@ describe("Recipe", () => {
   });
 
 
-  it.skip("should be able to determine the names of ingredients needed", () => {
+  it("should be able to determine the names of ingredients needed", () => {
     recipe.findIngredientNames(testIngredientsData);
 
-    expect(recipe.findIngredientNames()).to.deep.equal(["pasta", "cheddar cheese", "butter", "flour"]);
+
+    expect(recipe.findIngredientNames(testIngredientsData)).to.deep.equal(["pasta", "cheddar cheese", "butter", "flour"]);
   });
 
-  it.skip("should update ingredient names", () => {
+  it("should update ingredient names", () => {
     recipe.findIngredientNames(testIngredientsData);
 
     expect(recipe.ingredients[0].name).to.equal("flour");
