@@ -12,16 +12,14 @@ class Recipe {
   }
 
   createFullIngredients(ingredientsData) {
-    let fullIngredients = [];
     this.ingredients.forEach(ingredient => {
       ingredientsData.forEach(namedIng => {
         if(ingredient.id === namedIng.id) {
           this.fullIngredients.push({id: ingredient.id, name: namedIng.name, estimatedCostInCents: namedIng.estimatedCostInCents, quantity: ingredient.quantity})
-          fullIngredients.push({id: ingredient.id, name: namedIng.name, estimatedCostInCents: namedIng.estimatedCostInCents, quantity: ingredient.quantity})
         }
       })
     })
-    return fullIngredients
+    return this.fullIngredients
   }
 
   findIngredientNames(ingData) {
