@@ -8,17 +8,32 @@ class User {
     this.name = name;
     this.pantry = pantry;
     this.favoriteRecipes = [];
-    this.mealsForTheWeek = [];
+    this.recipesToCook = [];
     }
 
   // Allow a user to favorite or unfavorite recipes (add to / remove from the user’s favoriteRecipes)
+  addToFavoriteRecipes(recipe) {
+    if(!this.favoriteRecipes.includes(recipe)) {
+     this.favoriteRecipes.push(recipe)
+    }
+  }
 
+  removeFromFavoriteRecipes(input) {
+    this.favoriteRecipes.forEach(recipe =>{
+      if (input.name === recipe.name) {
+        this.favoriteRecipes.splice(input, 1)
+      }
+    })
+  }
 
-
+  addToRecipesToCook(recipe) {
+    if(!this.recipes.includes(recipe)) {
+     this.favoriteRecipes.push(recipe)
+    }
+  }
   // Filter my favoriteRecipes by one or more tags.
   // Filter my favoriteRecipes by its name or ingredients.
 
-    //add a test to remove the recipe from favorites
 }
 
 
