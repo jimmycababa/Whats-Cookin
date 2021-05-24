@@ -27,8 +27,8 @@ class User {
   }
 
   addToRecipesToCook(recipe) {
-    if(!this.recipes.includes(recipe)) {
-     this.favoriteRecipes.push(recipe)
+    if(!this.recipesToCook.includes(recipe)) {
+     this.recipesToCook.push(recipe)
     }
   }
   // Filter my favoriteRecipes by one or more tags.
