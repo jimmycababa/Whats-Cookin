@@ -32,7 +32,6 @@ class RecipeRepository {
 
   filterRecipesByIngredients(input) {
     let matches = [];
-    console.log(this.ingredients);
     let match = this.ingredients.find(ingredient => {
       return ingredient.name.includes(input)
     })
