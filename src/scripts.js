@@ -16,7 +16,7 @@ let instantiatedRecipes = [];
 
 
 //let recipeRepo = new RecipeRepository(recipeData);
-let recipeRepo = new RecipeRepository(instantiatedRecipes);
+let recipeRepo = new RecipeRepository(instantiatedRecipes, ingredientsData);
 
 // DOM !!!
 // Buttons
