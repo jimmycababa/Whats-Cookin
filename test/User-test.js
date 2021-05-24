@@ -143,11 +143,11 @@ describe("User", () => {
         //called as two separate functions for now
         user.addToFavoriteRecipes(recipe);
         user.addToFavoriteRecipes(recipe1);
-      user.filterFavRecipesByName(["milk", "corn"]);
+      user.filterFavRecipesByName("milk");
 
         //call this function in an if statement in filterFavRecipesByName!
             //this string may have to change according to the dom to be something more generic
-      expect(user.filterFavRecipesByIngredients("pasta")).to.equal("Sorry, we could not find any recipes to match your search");
+      expect(user.filterFavRecipesByIngredients("milk", testIngredientsData)).to.equal("Sorry, we could not find any recipes to match your search");
     });
 
 
