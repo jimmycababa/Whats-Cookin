@@ -147,6 +147,8 @@ function searchByTags() {
 }
 
 function displayCurrentRecipe(currentRecipe) {
+
+    console.log(currentRecipe.fullIngredients);
     currentRecipeView.innerHTML = "";
     //console.log("displayCurrentRecipe ")
     console.log(currentRecipe.instructions);
@@ -182,6 +184,9 @@ function displayCurrentRecipe(currentRecipe) {
               <ul>
                 <li>${currentRecipe.tags}</li>
               </ul>
+            </div>
+            <div class="current-recipe-cost">
+              <p>${currentRecipe.getPriceOfIngredients(ingredientsData)}</p>
             </div>
           </section>
         </div>`

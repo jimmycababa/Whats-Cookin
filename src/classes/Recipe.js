@@ -38,11 +38,11 @@ class Recipe {
     return this.instructions;
   }
 
-  getPriceOfIngredients(ingData) {
+  getPriceOfIngredients(ingredientsData) {
     let ingCosts = [];
     let costIng;
     this.ingredients.forEach(ing => {
-      let foundIngred = ingData.find(ingred => {
+      let foundIngred = ingredientsData.find(ingred => {
         return ingred.id === ing.id
       })
       costIng = (ing.quantity.amount * foundIngred.estimatedCostInCents) / 100;
