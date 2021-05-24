@@ -32,6 +32,23 @@ class User {
     }
   }
   // Filter my favoriteRecipes by one or more tags.
+  filterFavRecipesTags(tags) {
+    const matches = [];
+    this.favoriteRecipes.forEach(recipe => {
+      tags.forEach(tag => {
+        if (recipe.tags.includes(tag)) {
+        matches.push(recipe);
+      }
+      })
+    })
+    if (!matches[0]) {
+      return "Sorry, we could not find any recipes with that tag"
+    } else {
+
+      return matches
+    }
+  }
+
   // Filter my favoriteRecipes by its name or ingredients.
 
 }
