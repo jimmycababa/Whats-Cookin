@@ -1,11 +1,12 @@
 * {
-  border: blue solid 1px;
-  /* font-family: 'Open Sans', sans-serif; */
-  /* font-family: 'Open Sans', sans-serif; */
+  /* border: blue solid 1px; */
+  font-family: 'Athiti', sans-serif;
 }
 
-/* font-family: 'Dancing Script', cursive;
- */
+/* font-family: 'Athiti', sans-serif;
+font-family: 'Dancing Script', cursive;
+font-family: 'Pattaya', sans-serif; */
+
 
 /* Colors */
 /* #DDAF94
@@ -21,7 +22,6 @@ html {
 }
 
 body {
-  /* font-family: 'Newsreader', serif; */
   height: 100%;
   width: 100%;
 }
@@ -35,12 +35,19 @@ header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  /* background: black; */
 }
 
 h1 {
   margin-left: 5%;
-  /* font-family: 'Pattaya', sans-serif; */
+  font-family: 'Pattaya', sans-serif;
+}
+
+h2 {
+  font-family: 'Pattaya', sans-serif; 
+}
+
+h3 {
+  font-family: 'Dancing Script', cursive;
 }
 
 form {

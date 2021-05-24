@@ -89,7 +89,7 @@ function showRecipes(recipes) {
     let recipeCard = document.createElement("div");
     recipeCard.innerHTML =
     `
-    <p id=${recipes[i].id}>${recipes[i].name}</p>
+    <h3 id=${recipes[i].id}>${recipes[i].name}</h3>
     <img id=${recipes[i].id} src=${recipes[i].image}>
     `
     recipeDisplay.appendChild(recipeCard)
@@ -156,7 +156,7 @@ function displayCurrentRecipe(currentRecipe) {
       currentRecipeView.innerHTML =
           `<div class="current-recipe-card" id="currentRecipeCard">
           <section class="current-recipe-name">
-            <h3>${currentRecipe.name}</h3>
+            <h2>${currentRecipe.name}</h2>
           </section>
           <section class="current-recipe-add-to-fav">
             <button class="add-favorite-button" id="addToFavoriteButton">Favorite</button>
