@@ -34,11 +34,15 @@ class Recipe {
     return ingNames;
   }
 
-  getPriceOfIngredients(ingData) {
+  findInstructions() {
+    return this.instructions;
+  }
+
+  getPriceOfIngredients(ingredientsData) {
     let ingCosts = [];
     let costIng;
     this.ingredients.forEach(ing => {
-      let foundIngred = ingData.find(ingred => {
+      let foundIngred = ingredientsData.find(ingred => {
         return ingred.id === ing.id
       })
       costIng = (ing.quantity.amount * foundIngred.estimatedCostInCents) / 100;
@@ -49,7 +53,15 @@ class Recipe {
   }
 
   retrieveInstructions() {
-    return this.instructions;
+    const newInstructions = [];
+    //
+    const extractInstructions = this.instructions.forEach(instruction => {
+      let num = instruction.number;
+      let step = instruction.instruction
+      newInstructions.push(num, step)
+    })
+    return newInstructions;
+
   }
 }
 

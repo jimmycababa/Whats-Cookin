@@ -16,7 +16,7 @@ let instantiatedRecipes = [];
 
 
 //let recipeRepo = new RecipeRepository(recipeData);
-let recipeRepo = new RecipeRepository(instantiatedRecipes);
+let recipeRepo = new RecipeRepository(instantiatedRecipes, ingredientsData);
 
 // DOM !!!
 // Buttons
@@ -29,27 +29,6 @@ const addtoCookButton = document.getElementById("addtoCookButton");
 const filterNameIngInput = document.getElementById("filterNameIngInput");
 const submitNameIng = document.getElementById("submitNameIng");
 const submitTagsButton = document.getElementById("submitTagsButton");
-//Tags
-// const antipastiTag = document.getElementById("antipastiTag");
-// const starterTag = document.getElementById("starterTag");
-// const snackTag = document.getElementById("snackTag");
-// const appetizerTag = document.getElementById("appetizerTag");
-// const antipastoTag = document.getElementById("antipastoTag");
-// const horDoeuvreTag = document.getElementById("horDoeuvreTag");
-// const lunchTag = document.getElementById("lunchTag");
-// const mainCourseTag = document.getElementById("mainCourseTag");
-// const mainDishTag = document.getElementById("mainDishTag");
-// const dinnerTag = document.getElementById("dinnerTag");
-// const sauceTag = document.getElementById("sauceTag");
-// const sideDishTag = document.getElementById("sideDishTag");
-// const brunchTag = document.getElementById("brunchTag");
-// const morningMealTag = document.getElementById("morningMealTag");
-// const dipTag = document.getElementById("dipTag");
-// const breakfastTag = document.getElementById("breakfastTag");
-// const spreadTag = document.getElementById("spreadTag");
-// const saladTag = document.getElementById("saladTag");
-// const condimentTag = document.getElementById("condimentTag");
-
 const checkBoxes = document.querySelectorAll("input[type=checkbox]");
 // Views
 const tagsView = document.getElementById("tagsView");
@@ -133,7 +112,12 @@ function searchByNameIng() {
   hide(currentRecipeView);
   preventDefault();
   show(recipeDisplay);
-  showRecipes();
+  console.log(filterNameIngInput.value);
+  // let test1 = [];
+  const test2 = recipeRepo.filterRecipesByName(filterNameIngInput.value);
+  console.log(test2);
+  showRecipes(test2);
+  // we neew to add extra function to clean the screan for the next input that the user write
 }
 
 // filterNameIngInput.value"
@@ -162,24 +146,14 @@ function searchByTags() {
   showRecipes(tagMatches)
 }
 
-  // " checkboxes value"
-  // this query will take the value from the user selections
-  //That value will pass an "Argument" through:
-  // recipeRepository.""???findIngredientNames(""filterNameIngInput.value)
-  // Is gonna iterate and filter all the recipes repository info and will return a new array based the "User conditions".
-  // That new array will be the ARGUMENT for  "showRecipes();"
-  //showRecipes();
-
-
-
-
-
-
 function displayCurrentRecipe(currentRecipe) {
+
+    console.log(currentRecipe.fullIngredients);
     currentRecipeView.innerHTML = "";
     //console.log("displayCurrentRecipe ")
+    console.log(currentRecipe.instructions);
     console.log(currentRecipe)
-      currentRecipeView.innerHTML +=
+      currentRecipeView.innerHTML =
           `<div class="current-recipe-card" id="currentRecipeCard">
           <section class="current-recipe-name">
             <h3>${currentRecipe.name}</h3>
@@ -203,7 +177,7 @@ function displayCurrentRecipe(currentRecipe) {
           <section class="current-recipe-text">
             <div class="current-recipe-inst">
               <ol>
-                <li>${currentRecipe.findIngredientNames(ingredientsData)}</li>
+                <li>${currentRecipe.retrieveInstructions()}</li>
               </ol>
             </div>
             <div class="current-recipe-tags">
@@ -211,9 +185,11 @@ function displayCurrentRecipe(currentRecipe) {
                 <li>${currentRecipe.tags}</li>
               </ul>
             </div>
+            <div class="current-recipe-cost">
+              <p>${currentRecipe.getPriceOfIngredients(ingredientsData)}</p>
+            </div>
           </section>
         </div>`
-
     // currentRecipeView.innerHTML = currentRecipeHTML;
     //currentRecipeView.appendChild(currentRecipeView)
 };
@@ -228,31 +204,52 @@ function instantiateRecipes(recipeData) {
 }
 
 function showCurrentRecipe() {
-  show(currentRecipeView);
   hide(recipeDisplay);
   hide(toCookRecipesView);
   hide(favRecipesView);
-  let match;
-  recipeRepo.recipes.find(recipe => {
-    //console.log(event.target)
-    //event target closest for class
-    //event target.id also?
-    match = event.target.closest(`${recipe.name}`)
+  show(currentRecipeView);
+  // console.log(event.target.id);
+  preventDefault();
+  // if (event.target.id)
+  let target = event.target.id;
+  recipeRepo.recipes.find(recipes => {
+    // console.log(recipes.id);
+    // console.log(target)
+    let numId = recipes.id;
+    let stringNum =  numId.toString();
+    // let parseNum = num.toString(recipes.id);
+    let test1 = stringNum === target;
+    // console.log(test1);
+    displayCurrentRecipe(recipes);
+    return test1
 
-    return match
-  }
-  )
-    // displayCurrentRecipe(recipe)
+  });
+
+  // getTarget();
+// I need to incorporate and event.target to tell the browser in the card that we make click get the value of that card
+ // if (evet.target.id === recipeRepo.recipes.id)
+ // console.log(evet.target.id  )
+
+
+  // recipeRepo.recipes.find(recipe => {
+  //   console.log(event.target)
+  //   // event target closest for class
+  //   // event target.id also?
+  //   match = event.target.closest(`${recipe.name}`)
+  //
+  //   return match
+  //   }
+  // })
   // recipeRepo.recipes.find(recipe => {
   //   console.log(event.target.id)
-  //   // console.log(recipe.id)
-  //   // if (event.target.id === parseInt(recipe.id)) {
-  //   //   match = recipe;
-  //   //   console.log(match)
-  //   // }
+  //   console.log(recipe.id)
+  //   if (event.target.id === parseInt(recipe.id)) {
+  //     match = recipe;
+  //     console.log(match)
+  //   }
   // }
+  // displayCurrentRecipe()
 };
-
 
 
 // function showFavoriteRecipes() {

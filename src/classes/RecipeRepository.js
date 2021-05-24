@@ -21,7 +21,7 @@ class RecipeRepository {
 
   filterRecipesByName(input) {
     const recipeMatch = this.recipes.filter(recipe => {
-        return recipe.name === input
+        return recipe.name  === input;
     });
     if (!recipeMatch[0]) {
       return this.filterRecipesByIngredients(input)
@@ -32,6 +32,7 @@ class RecipeRepository {
 
   filterRecipesByIngredients(input) {
     let matches = [];
+    console.log(this.ingredients);
     let match = this.ingredients.find(ingredient => {
       return ingredient.name.includes(input)
     })
