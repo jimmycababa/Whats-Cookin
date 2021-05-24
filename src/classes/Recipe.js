@@ -54,12 +54,12 @@ class Recipe {
 
   retrieveInstructions() {
     const newInstructions = [];
-    //
     const extractInstructions = this.instructions.forEach(instruction => {
       let num = instruction.number;
       let step = instruction.instruction
       newInstructions.push(num, step)
     })
+
     return newInstructions;
 
   }
