@@ -6,11 +6,22 @@ import apiCalls from './apiCalls';
 import  Recipe  from "./classes/Recipe";
 import  Ingredient  from './classes/Ingredient';
 import  RecipeRepository  from './classes/RecipeRepository';
+import  ApiHost  from './apiCalls';
 import  recipeData  from './data/recipes.js';
 import  ingredientsData  from './data/ingredients.js';
 
 let instantiatedRecipes = [];
+let apiCall =  new ApiHost();
 
+// const apiIng = apiCall.getIngredients();
+// const apiRecipes = apiCall.getRecipes();
+// const apiUsers = apiCall.getUsers();
+// console.log(apiIng);
+// console.log(apiRecipes);
+// console.log(apiUsers);
+
+// console.log(apiCall.getIngredients());
+// apiCall.getRecipes();
 //We will be instantiating Recipes here from data
 //event listener on window load for this function?
 
@@ -42,7 +53,7 @@ const currentRecipeCard = document.getElementById("currentRecipeCard");
 allRecipesButton.addEventListener('click', showAllRecipes);
 submitNameIng.addEventListener('click', searchByNameIng);
 submitTagsButton.addEventListener('click', searchByTags);
-recipeDisplay.addEventListener("click", showCurrentRecipe);
+// recipeDisplay.addEventListener("click", showCurrentRecipe);
 
 window.addEventListener("load", function() {
   instantiateRecipes(recipeData)});
@@ -82,44 +93,33 @@ function showRecipes(recipes) {
   //
   // })
 
-  // let recipesHTML = ;
-  //
-  // for(var i = 0; i < recipes.length; i++) {
-  //   recipestHTML = `<div class="recipe-card">
-  //   <h3 id=${recipes[i].id}>${recipes[i].name}</h3>
-  //   <img id=${recipes[i].id} src=${recipes[i].image}>
-  //   </div>`
-  // }
-  //
-  // recipeDisplay.innerHTML = recipesHTML;
+  recipeDisplay.innerHTML = "";
+  for (var i = 0; i < recipes.length; i++) {
+    //recipes[i];
+    // console.log(recipes[i]);
+    let recipeCard = document.createElement("div");
+    recipeCard.addEventListener("click", showCurrentRecipe)
+    recipeCard.innerHTML =
+    `
+    <h3 id=${recipes[i].id}>${recipes[i].name}</h3>
+    <img id=${recipes[i].id} src=${recipes[i].image}>
+    `
+    recipeDisplay.appendChild(recipeCard)
+  }
 
-  // recipeDisplay.innerHTML = "";
-  // for (var i = 0; i < recipes.length; i++) {
-  //   //recipes[i];
-  //   // console.log(recipes[i]);
-  //   let recipeCard = document.createElement("div");
-  //   recipeCard.innerHTML =
+
+
+  // // recipeDisplay.innerHTML = "";
+  // let recipeCard = recipes.forEach(recipe => {
+  //   recipeDisplay.innerHTML +=
   //   `
-  //   <h3 id=${recipes[i].id}>${recipes[i].name}</h3>
-  //   <img id=${recipes[i].id} src=${recipes[i].image}>
+  //   <div>
+  //   <p id=${recipe.id}>${recipe.name}</p>
+  //   <img id=${recipe.id} src=${recipe.image}>
+  //   </div>
   //   `
   //   recipeDisplay.appendChild(recipeCard)
-  // }
-
-
-
-
-
-  recipeDisplay.innerHTML = "";
-  recipes.forEach(recipe => {
-    recipeDisplay.innerHTML +=
-    `
-    <div>
-    <p id=${recipe.id}>${recipe.name}</p>
-    <img id=${recipe.id} src=${recipe.image}>
-    </div>
-    `
-  })
+  // })
 }
 
 function showAllRecipes() {
@@ -248,9 +248,8 @@ function showCurrentRecipe() {
     // console.log(test1);
     displayCurrentRecipe(recipes);
     return test1
-
   });
-
+}
   // getTarget();
 // I need to incorporate and event.target to tell the browser in the card that we make click get the value of that card
  // if (evet.target.id === recipeRepo.recipes.id)
@@ -275,7 +274,6 @@ function showCurrentRecipe() {
   //   }
   // }
   // displayCurrentRecipe()
-};
 
 
 // function showFavoriteRecipes() {
