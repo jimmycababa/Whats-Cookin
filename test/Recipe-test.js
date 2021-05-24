@@ -167,12 +167,6 @@ describe("Recipe", () => {
   it("should return the instructions needed to cook recipe", () => {
     recipe.retrieveInstructions();
 
-    expect(recipe.retrieveInstructions()).to.deep.equal([{ "instruction": "Salt the water then boil", "number": 1},
-      {"instruction": "Pour the dry noodles into the pot", "number": 2},
-      {"instruction": "Boil noodles for 8 minutes", "number": 3},
-      {"instruction": "Make a roux with flour and butter", "number": 4},
-      {"instruction": "Add cheese to roux", "number": 5},
-      {"instruction": "Add cheesy roux to noodles and mix", "number": 6}
-    ]);
+    expect(recipe.retrieveInstructions()).to.deep.equal([1,'Salt the water then boil', 2, 'Pour the dry noodles into the pot', 3, 'Boil noodles for 8 minutes', 4, 'Make a roux with flour and butter', 5, 'Add cheese to roux', 6, 'Add cheesy roux to noodles and mix']);
   });
 });
