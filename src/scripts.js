@@ -141,6 +141,7 @@ function showRecipes(recipes) {
   // })
   // <div class="recipe-card-section" id="recipeCardSection">
     // recipeDisplay.appendChild(recipeCardSection)
+
 }
 
 function showAllRecipes() {
