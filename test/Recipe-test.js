@@ -149,19 +149,10 @@ describe("Recipe", () => {
     expect(recipe.ingredients[3].name).to.equal("pasta");
   });
 
-  it("should calculate estimated cost in cents of ingredients", () => {
+  it("should calculate total estimated cost in cents of ingredients", () => {
     recipe.getPriceOfIngredients(testIngredientsData);
 
-    expect(recipe.getPriceOfIngredients(testIngredientsData)).to.deep.equal([0.75, 6.45, 18.27, 6.48])
-  });
-
-  it("should update ingredient costs", () => {
-    recipe.getPriceOfIngredients(testIngredientsData);
-
-    expect(recipe.ingredients[0].cost).to.equal(6.48);
-    expect(recipe.ingredients[1].cost).to.equal(18.27);
-    expect(recipe.ingredients[2].cost).to.equal(6.45);
-    expect(recipe.ingredients[3].cost).to.equal(0.75);
+    expect(recipe.getPriceOfIngredients(testIngredientsData)).to.equal(31.95)
   });
 
   it("should return the instructions needed to cook recipe", () => {

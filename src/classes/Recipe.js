@@ -39,17 +39,31 @@ class Recipe {
   }
 
   getPriceOfIngredients(ingredientsData) {
-    let ingCosts = [];
+    //let ingCosts = [];
     let costIng;
-    this.ingredients.forEach(ing => {
+    const total = this.ingredients.reduce((accumulator, currentIngredient) => {
       let foundIngred = ingredientsData.find(ingred => {
-        return ingred.id === ing.id
+        return ingred.id === currentIngredient.id
       })
-      costIng = (ing.quantity.amount * foundIngred.estimatedCostInCents) / 100;
-      ing.cost = costIng;
-      ingCosts.unshift(costIng);
-    })
-    return ingCosts;
+      costIng = Math.floor((currentIngredient.quantity.amount * foundIngred.estimatedCostInCents)) / 100;
+      accumulator += costIng
+      return accumulator
+    }, 0)
+    //console.log(total)
+    return total
+    //return ingCosts;
+
+    // let ingCosts = [];
+    // let costIng;
+    // this.ingredients.forEach(ing => {
+    //   let foundIngred = ingredientsData.find(ingred => {
+    //     return ingred.id === ing.id
+    //   })
+    //   costIng = (ing.quantity.amount * foundIngred.estimatedCostInCents) / 100;
+    //   ing.cost = costIng;
+    //   ingCosts.unshift(costIng);
+    // })
+    // return ingCosts;
   }
 
   retrieveInstructions() {

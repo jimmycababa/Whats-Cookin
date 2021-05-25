@@ -151,8 +151,4 @@ describe("User", () => {
             //this string may have to change according to the dom to be something more generic
       expect(user.filterFavRecipesByIngredients("milk", testIngredientsData)).to.equal("Sorry, we could not find any recipes to match your search");
     });
-
-
-
-
 });
