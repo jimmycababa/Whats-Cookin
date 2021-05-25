@@ -96,8 +96,47 @@ function showRecipes(recipes) {
   //   <p id=${recipes[i].id}>${recipes[i].name}</p>
   //   <img id=${recipes[i].id} src=${recipes[i].image}>
   //   `
+  //
+  // })
+
+  // let recipesHTML = ;
+  //
+  // for(var i = 0; i < recipes.length; i++) {
+  //   recipestHTML = `<div class="recipe-card">
+  //   <h3 id=${recipes[i].id}>${recipes[i].name}</h3>
+  //   <img id=${recipes[i].id} src=${recipes[i].image}>
+  //   </div>`
+  // }
+  //
+  // recipeDisplay.innerHTML = recipesHTML;
+
+  // recipeDisplay.innerHTML = "";
+  // for (var i = 0; i < recipes.length; i++) {
+  //   //recipes[i];
+  //   // console.log(recipes[i]);
+  //   let recipeCard = document.createElement("div");
+  //   recipeCard.innerHTML =
+  //   `
+  //   <h3 id=${recipes[i].id}>${recipes[i].name}</h3>
+  //   <img id=${recipes[i].id} src=${recipes[i].image}>
+  //   `
   //   recipeDisplay.appendChild(recipeCard)
   // }
+
+
+
+
+
+  recipeDisplay.innerHTML = "";
+  recipes.forEach(recipe => {
+    recipeDisplay.innerHTML +=
+    `
+    <div>
+    <p id=${recipe.id}>${recipe.name}</p>
+    <img id=${recipe.id} src=${recipe.image}>
+    </div>
+    `
+  })
 }
 
 function showAllRecipes() {
@@ -161,7 +200,7 @@ function displayCurrentRecipe(currentRecipe) {
       currentRecipeView.innerHTML =
           `<div class="current-recipe-card" id="currentRecipeCard">
           <section class="current-recipe-name">
-            <h3>${currentRecipe.name}</h3>
+            <h2>${currentRecipe.name}</h2>
           </section>
           <section class="current-recipe-add-to-fav">
             <button class="add-favorite-button" id="addToFavoriteButton">Favorite</button>
