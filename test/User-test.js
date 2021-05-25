@@ -3,6 +3,7 @@ import  User  from "../src/classes/User";
 import  Ingredient  from '../src/classes/Ingredient';
 import  Recipe  from '../src/classes/Recipe';
 import  testIngredientsData  from './test-data';
+//import ingredientsData from "../src/data/ingredients";
 
 describe("User", () => {
   let user, ingredient, recipe, recipe1;
@@ -111,18 +112,18 @@ describe("User", () => {
   it('should filter favorite recipes via name or ingredients', () => {
       user.addToFavoriteRecipes(recipe);
       user.addToFavoriteRecipes(recipe1);
-      user.filterFavRecipesByName("Macaroni and Cheese");
+      user.filterFavRecipesByName("Macaroni and Cheese", testIngredientsData);
 
-        expect(user.filterFavRecipesByName("Macaroni and Cheese")).to.deep.equal([recipe]);
+        expect(user.filterFavRecipesByName("Macaroni and Cheese", testIngredientsData)).to.deep.equal([recipe]);
       });
 
     //Sad
     it('should alert the user when no recipe with that name is found', () => {
       user.addToFavoriteRecipes(recipe);
       user.addToFavoriteRecipes(recipe1);
-      user.filterFavRecipesByName("Crab legs");
+      user.filterFavRecipesByName("Crab legs", testIngredientsData);
 
-        expect(user.filterFavRecipesByName("Crab legs")).to.equal("Sorry, we could not find any recipes to match your search");
+        expect(user.filterFavRecipesByName("Crab legs", testIngredientsData)).to.equal("Sorry, we could not find any recipes to match your search");
       });
 
     //Happy
@@ -131,7 +132,8 @@ describe("User", () => {
         //called as two separate functions for now
         user.addToFavoriteRecipes(recipe);
         user.addToFavoriteRecipes(recipe1);
-        user.filterFavRecipesByName("pasta");
+        user.filterFavRecipesByName("pasta", testIngredientsData);
+        console.log(testIngredientsData)
 
         //call this function in an if statement in filterFavRecipesByName!
         expect(user.filterFavRecipesByIngredients("pasta", testIngredientsData)).to.deep.equal([recipe]);
@@ -143,7 +145,7 @@ describe("User", () => {
         //called as two separate functions for now
         user.addToFavoriteRecipes(recipe);
         user.addToFavoriteRecipes(recipe1);
-      user.filterFavRecipesByName("milk");
+        user.filterFavRecipesByName("milk", testIngredientsData);
 
         //call this function in an if statement in filterFavRecipesByName!
             //this string may have to change according to the dom to be something more generic

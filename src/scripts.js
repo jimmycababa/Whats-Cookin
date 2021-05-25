@@ -42,7 +42,9 @@ const currentRecipeCard = document.getElementById("currentRecipeCard");
 allRecipesButton.addEventListener('click', showAllRecipes);
 submitNameIng.addEventListener('click', searchByNameIng);
 submitTagsButton.addEventListener('click', searchByTags);
-recipeDisplay.addEventListener("click", showCurrentRecipe);
+recipeDisplay.addEventListener("click", function() {
+  showCurrentRecipe(event)
+});
 
 window.addEventListener("load", function() {
   instantiateRecipes(recipeData)});
@@ -71,29 +73,31 @@ function hide(element) {
 
 function showRecipes(recipes) {
   // console.log(recipes);
+  recipeDisplay.innerHTML = "";
+  recipes.forEach(recipe => {
+    recipeDisplay.innerHTML +=
+
+    `
+    <div>
+    <p id=${recipe.id}>${recipe.name}</p>
+    <img id=${recipe.id} src=${recipe.image}>
+    </div>
+    `
+
+  })
   // recipeDisplay.innerHTML = "";
-  // recipes.forEach(recipe => {
-  //   recipeDisplay.innerHTML +=
+  // for (var i = 0; i < recipes.length; i++) {
+  //   //recipes[i];
   //
+  //   // console.log(recipes[i]);
+  //   let recipeCard = document.createElement("div");
+  //   recipeCard.innerHTML =
   //   `
-  //   <p id=${recipe.id}>${recipe.name}</p>
-  //   <img id=${recipe.id} src=${recipe.image}>
+  //   <p id=${recipes[i].id}>${recipes[i].name}</p>
+  //   <img id=${recipes[i].id} src=${recipes[i].image}>
   //   `
-  //
-  // })
-
-  for (var i = 0; i < recipes.length; i++) {
-    //recipes[i];
-
-    // console.log(recipes[i]);
-    let recipeCard = document.createElement("div");
-    recipeCard.innerHTML =
-    `
-    <p id=${recipes[i].id}>${recipes[i].name}</p>
-    <img id=${recipes[i].id} src=${recipes[i].image}>
-    `
-    recipeDisplay.appendChild(recipeCard)
-  }
+  //   recipeDisplay.appendChild(recipeCard)
+  // }
 }
 
 function showAllRecipes() {
@@ -112,10 +116,10 @@ function searchByNameIng() {
   hide(currentRecipeView);
   preventDefault();
   show(recipeDisplay);
-  console.log(filterNameIngInput.value);
+  //console.log(filterNameIngInput.value);
   // let test1 = [];
   const test2 = recipeRepo.filterRecipesByName(filterNameIngInput.value);
-  console.log(test2);
+  //console.log(test2);
   showRecipes(test2);
   // we neew to add extra function to clean the screan for the next input that the user write
 }
@@ -135,6 +139,7 @@ function searchByTags() {
   show(recipeDisplay);
 
   let checkBoxMatches = [];
+  console.log(checkBoxMatches)
   checkBoxes.forEach(checkBox => {
     if(checkBox.checked) {
       checkBoxMatches.push(checkBox.value)
@@ -148,11 +153,11 @@ function searchByTags() {
 
 function displayCurrentRecipe(currentRecipe) {
 
-    console.log(currentRecipe.fullIngredients);
+    //console.log(currentRecipe.fullIngredients);
     currentRecipeView.innerHTML = "";
     //console.log("displayCurrentRecipe ")
-    console.log(currentRecipe.instructions);
-    console.log(currentRecipe)
+    //console.log(currentRecipe.instructions);
+    //console.log(currentRecipe)
       currentRecipeView.innerHTML =
           `<div class="current-recipe-card" id="currentRecipeCard">
           <section class="current-recipe-name">
@@ -203,12 +208,12 @@ function instantiateRecipes(recipeData) {
   })
 }
 
-function showCurrentRecipe() {
+function showCurrentRecipe(event) {
   hide(recipeDisplay);
   hide(toCookRecipesView);
   hide(favRecipesView);
   show(currentRecipeView);
-  // console.log(event.target.id);
+  console.log(event.target.id);
   preventDefault();
   // if (event.target.id)
   let target = event.target.id;
@@ -218,10 +223,10 @@ function showCurrentRecipe() {
     let numId = recipes.id;
     let stringNum =  numId.toString();
     // let parseNum = num.toString(recipes.id);
-    let test1 = stringNum === target;
+    let test1 = (stringNum === target);
     // console.log(test1);
     displayCurrentRecipe(recipes);
-    return test1
+    //return test1
 
   });
 
@@ -268,4 +273,4 @@ function showCurrentRecipe() {
 // window.onload = showRecipes(recipeRepo.recipes);
 //recipe.createFullIngredients()
 
-console.log('Hello world');
+//console.log('Hello world');
