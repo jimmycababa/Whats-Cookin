@@ -74,11 +74,10 @@ nav {
   flex-direction: column;
 }
 
-/* Filter View */
-/* .filter {
+.home-view {
   display: flex;
-  justify-content: center;
-} */
+  align-items: center;
+}
 
 .tag-selection {
   background-color:  #E8CEBF;
@@ -113,6 +112,7 @@ nav {
   align-items: center;
   justify-content: space-evenly;
 }
+
 
 .recipe-card {
   height: 50px;

@@ -6,11 +6,22 @@ import apiCalls from './apiCalls';
 import  Recipe  from "./classes/Recipe";
 import  Ingredient  from './classes/Ingredient';
 import  RecipeRepository  from './classes/RecipeRepository';
+import  ApiHost  from './apiCalls';
 import  recipeData  from './data/recipes.js';
 import  ingredientsData  from './data/ingredients.js';
 
 let instantiatedRecipes = [];
+let apiCall =  new ApiHost();
 
+const apiIng = apiCall.getIngredients();
+const apiRecipes = apiCall.getRecipes();
+const apiUsers = apiCall.getUsers();
+console.log(apiIng);
+console.log(apiRecipes);
+console.log(apiUsers);
+
+// console.log(apiCall.getIngredients());
+// apiCall.getRecipes();
 //We will be instantiating Recipes here from data
 //event listener on window load for this function?
 
@@ -26,6 +37,7 @@ const toCookButton = document.getElementById("toCookButton");
 const addToFavoriteButton = document.getElementById("addToFavoriteButton");
 const addtoCookButton = document.getElementById("addtoCookButton");
 // Submit Buttons
+const homeViewBtn = document.getElementById("homeViewBtn");
 const filterNameIngInput = document.getElementById("filterNameIngInput");
 const submitNameIng = document.getElementById("submitNameIng");
 const submitTagsButton = document.getElementById("submitTagsButton");
@@ -42,11 +54,14 @@ const currentRecipeCard = document.getElementById("currentRecipeCard");
 allRecipesButton.addEventListener('click', showAllRecipes);
 submitNameIng.addEventListener('click', searchByNameIng);
 submitTagsButton.addEventListener('click', searchByTags);
-recipeDisplay.addEventListener("click", showCurrentRecipe);
+homeViewBtn.addEventListener('click', showHomeView);
+// recipeDisplay.addEventListener("click", showCurrentRecipe);
 
 window.addEventListener("load", function() {
   instantiateRecipes(recipeData)});
 
+window.addEventListener("load", function() {
+    showHomeView()});
 // favoriteButton.addEventListener('click', showFavoriteRecipes);
 // addToFavoriteButton.addEventListener('click', );
 // toCookButton.addEventListener('click', showRecipesToCook);
@@ -66,38 +81,45 @@ function hide(element) {
   element.classList.add('hidden');
 }
 
+function getRandomRecipe(recipe) {
+  return recipe[Math.floor(Math.random() * recipe.length)];
+}
+
+function showHomeView() {
+  hide(toCookRecipesView);
+  hide(favRecipesView);
+  hide(currentRecipeView);
+  show(recipeDisplay);
+  preventDefault();
+
+  let randomRecipe = getRandomRecipe(recipeRepo.recipes);
+  console.log(randomRecipe)
+  showRecipes([randomRecipe]);
+}
+
 // Show Recipes Function
 // Change for iteration methods and be able to use for fav and to cook
-
+//
 function showRecipes(recipes) {
-  // console.log(recipes);
-  // recipeDisplay.innerHTML = "";
-  // recipes.forEach(recipe => {
-  //   recipeDisplay.innerHTML +=
-  //
-  //   `
-  //   <p id=${recipe.id}>${recipe.name}</p>
-  //   <img id=${recipe.id} src=${recipe.image}>
-  //   `
-  //
-  // })
+  recipeDisplay.innerHTML = "";
+  let recipeCard = recipes.forEach(recipe => {
+    let recipeCard = document.createElement("div");
+    recipeCard.addEventListener("click", showCurrentRecipe)
+    recipeCard.innerHTML =
+    `
+    <h3 id=${recipe.id}>${recipe.name}</h3>
+    <img id=${recipe.id} src=${recipe.image}>
+    `
+    recipeDisplay.appendChild(recipeCard)
+  });
 
-  // let recipesHTML = ;
-  //
-  // for(var i = 0; i < recipes.length; i++) {
-  //   recipestHTML = `<div class="recipe-card">
-  //   <h3 id=${recipes[i].id}>${recipes[i].name}</h3>
-  //   <img id=${recipes[i].id} src=${recipes[i].image}>
-  //   </div>`
-  // }
-  //
-  // recipeDisplay.innerHTML = recipesHTML;
 
   // recipeDisplay.innerHTML = "";
   // for (var i = 0; i < recipes.length; i++) {
   //   //recipes[i];
   //   // console.log(recipes[i]);
   //   let recipeCard = document.createElement("div");
+  //   recipeCard.addEventListener("click", showCurrentRecipe)
   //   recipeCard.innerHTML =
   //   `
   //   <h3 id=${recipes[i].id}>${recipes[i].name}</h3>
@@ -107,19 +129,19 @@ function showRecipes(recipes) {
   // }
 
 
+  // recipeCardSection.innerHTML = "";
+  // let recipeCard = recipes.forEach(recipe => {
+  //   recipeCardSection.innerHTML +=
+  //   `
+  //   <div class="recipe-display" id="recipeDisplay">
+  //   <p id=${recipe.id}>${recipe.name}</p>
+  //   <img id=${recipe.id} src=${recipe.image}>
+  //   </div>
+  //   `
+  // })
+  // <div class="recipe-card-section" id="recipeCardSection">
+    // recipeDisplay.appendChild(recipeCardSection)
 
-
-
-  recipeDisplay.innerHTML = "";
-  recipes.forEach(recipe => {
-    recipeDisplay.innerHTML +=
-    `
-    <div>
-    <p id=${recipe.id}>${recipe.name}</p>
-    <img id=${recipe.id} src=${recipe.image}>
-    </div>
-    `
-  })
 }
 
 function showAllRecipes() {
@@ -138,20 +160,10 @@ function searchByNameIng() {
   hide(currentRecipeView);
   preventDefault();
   show(recipeDisplay);
-  console.log(filterNameIngInput.value);
-  // let test1 = [];
   const test2 = recipeRepo.filterRecipesByName(filterNameIngInput.value);
-  console.log(test2);
   showRecipes(test2);
-  // we neew to add extra function to clean the screan for the next input that the user write
 }
 
-// filterNameIngInput.value"
-// Will take the value from the user tags selection
-//That value will pass as an "Argument" through:
-// recipeRepository.findIngredientNames(filterNameIngInput.value)
-// Is gonna iterate and filter all the recipes repository info and will return a new array based the "User conditions".
-// That new array will be the ARGUMENT for  "showRecipes();"
 
 function searchByTags() {
   hide(toCookRecipesView);
@@ -173,12 +185,8 @@ function searchByTags() {
 }
 
 function displayCurrentRecipe(currentRecipe) {
-
-    console.log(currentRecipe.fullIngredients);
     currentRecipeView.innerHTML = "";
-    //console.log("displayCurrentRecipe ")
-    console.log(currentRecipe.instructions);
-    console.log(currentRecipe)
+
       currentRecipeView.innerHTML =
           `<div class="current-recipe-card" id="currentRecipeCard">
           <section class="current-recipe-name">
@@ -236,7 +244,7 @@ function showCurrentRecipe() {
   show(currentRecipeView);
   // console.log(event.target.id);
   preventDefault();
-  // if (event.target.id)
+
   let target = event.target.id;
   recipeRepo.recipes.find(recipes => {
     // console.log(recipes.id);
@@ -248,35 +256,8 @@ function showCurrentRecipe() {
     // console.log(test1);
     displayCurrentRecipe(recipes);
     return test1
-
   });
-
-  // getTarget();
-// I need to incorporate and event.target to tell the browser in the card that we make click get the value of that card
- // if (evet.target.id === recipeRepo.recipes.id)
- // console.log(evet.target.id  )
-
-
-  // recipeRepo.recipes.find(recipe => {
-  //   console.log(event.target)
-  //   // event target closest for class
-  //   // event target.id also?
-  //   match = event.target.closest(`${recipe.name}`)
-  //
-  //   return match
-  //   }
-  // })
-  // recipeRepo.recipes.find(recipe => {
-  //   console.log(event.target.id)
-  //   console.log(recipe.id)
-  //   if (event.target.id === parseInt(recipe.id)) {
-  //     match = recipe;
-  //     console.log(match)
-  //   }
-  // }
-  // displayCurrentRecipe()
-};
-
+}
 
 // function showFavoriteRecipes() {
 //   show(favRecipesView);
