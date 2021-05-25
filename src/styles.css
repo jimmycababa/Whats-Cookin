@@ -1,7 +1,12 @@
 * {
-  border: blue solid 1px
-  /* font-family: 'Open Sans', sans-serif; */
+  /* border: blue solid 1px; */
+  font-family: 'Athiti', sans-serif;
 }
+
+/* font-family: 'Athiti', sans-serif;
+font-family: 'Dancing Script', cursive;
+font-family: 'Pattaya', sans-serif; */
+
 
 /* Colors */
 /* #DDAF94
@@ -17,7 +22,6 @@ html {
 }
 
 body {
-  font-family: 'Newsreader', serif;
   height: 100%;
   width: 100%;
 }
@@ -28,14 +32,23 @@ main {
 }
 
 header {
+  background-color: #FDF8F5;
   display: flex;
   flex-direction: row;
   align-items: center;
-  /* background: black; */
 }
 
 h1 {
-  margin-left: 5%
+  margin-left: 5%;
+  font-family: 'Pattaya', sans-serif;
+}
+
+h2 {
+  font-family: 'Pattaya', sans-serif;
+}
+
+h3 {
+  font-family: 'Dancing Script', cursive;
 }
 
 form {
@@ -61,13 +74,13 @@ nav {
   flex-direction: column;
 }
 
-/* Filter View */
-/* .filter {
+.home-view {
   display: flex;
-  justify-content: center;
-} */
+  align-items: center;
+}
 
 .tag-selection {
+  background-color:  #E8CEBF;
   width: 100%;
   height: 7%;
   display: flex;
@@ -91,6 +104,7 @@ nav {
 
 /*  Multiple Recipe Display */
 .recipe-display {
+  /* background-color: #DDAF94; */
   display: flex;
   height: 100%;
   width: 100%;
@@ -98,6 +112,7 @@ nav {
   align-items: center;
   justify-content: space-evenly;
 }
+
 
 .recipe-card {
   height: 50px;
@@ -145,8 +160,9 @@ nav {
 }
 
 .food-image {
-  height: 25vw;
-  width: 25vw;
+  /* height: 25vw;
+  width: 25vw; */
+  flex: 2;
 }
 
 .current-recipe-ing {
@@ -155,6 +171,7 @@ nav {
   justify-content: center;
   align-items: center;
   margin-right: 5%;
+  flex: 2;
 }
 
 .current-recipe-inst {
@@ -166,7 +183,8 @@ nav {
 
 .current-recipe-tags {
   display: flex;
-    justify-content: space-around;
+  justify-content: space-around;
+  font-family: 'Dancing Script', cursive;
 }
 
 .current-recipe-add-to-cook {
@@ -211,6 +229,11 @@ nav {
   font-size: 10px;
   padding: 5px;
 } */
+
+img {
+  width: 300px;
+  height: 200px;
+}
 
 .hidden {
   display: none;

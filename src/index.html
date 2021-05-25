@@ -2,12 +2,8 @@
 <html>
   <head>
     <title>Whats Cookin'</title>
-    <!-- <link rel="stylesheet" href="styles.css"> -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Newsreader&family=Noto+Sans&display=swap" rel="stylesheet"> -->
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Newsreader&display=swap" rel="stylesheet"> -->
-    <!-- Are the below two lines the same as the last one? -->
+    <link href="https://fonts.googleapis.com/css2?family=Athiti&family=Dancing+Script&family=Pattaya&display=swap" rel="stylesheet">
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="utf-8" http-equiv="encoding">
     <meta charset="UTF-8">
@@ -21,6 +17,7 @@
           <button type="submit" value="search" id="submitNameIng"/>search</button>
         </form>
         <nav>
+          <button class="home-view-btn" id="homeViewBtn">Home</button>
           <button class="favorite-button" id="toCookButton">Favorite Recipes</button>
           <button class="to-cook-button" id="favoriteButton">Recipes to Cook</button>
           <button class="all-recipes-button" id="allRecipesButton">All Recipes</button>
@@ -41,25 +38,25 @@
             </div>
             <div>
               <input type="checkbox" name="tags" value="antipasto" id="antipastoTag">Antipasto</input>
-              <input type="checkbox" name="tags" value="hor-d'oeuvre" id="horDoeuvreTag">Hor d'oeuvre</input>
+              <input type="checkbox" name="tags" value="hor d'oeuvre" id="horDoeuvreTag">Hor d'oeuvre</input>
             </div>
             <div>
               <input type="checkbox" name="tags" value="lunch" id="lunchTag">Lunch</input>
-              <input type="checkbox" name="tags" value="main-course" id="mainCourseTag">Main Course</input>
+              <input type="checkbox" name="tags" value="main course" id="mainCourseTag">Main Course</input>
             </div>
             <div>
-              <input type="checkbox" name="tags" value="main-dish" id="mainDishTag">Main Dish</input>
+              <input type="checkbox" name="tags" value="main dish" id="mainDishTag">Main Dish</input>
               <input type="checkbox" name="tags" value="dinner" id="dinnerTag">Dinner</input>
             </div>
           </div>
           <div class="checkbox">
             <div>
               <input type="checkbox" name="tags" value="sauce" id="sauceTag">Sauce</input>
-              <input type="checkbox" name="tags" value="side-dish" id="sideDishTag">Side Dish</input>
+              <input type="checkbox" name="tags" value="side dish" id="sideDishTag">Side Dish</input>
             </div>
             <div>
               <input type="checkbox" name="tags" value="brunch" id="brunchTag">Brunch</input>
-              <input type="checkbox" name="tags" value="morning-meal" id="morningMealTag">Morning Meal</input>
+              <input type="checkbox" name="tags" value="morning meal" id="morningMealTag">Morning Meal</input>
             </div>
             <div>
               <input type="checkbox" name="tags" value="salad" id="saladTag">Salad</input>
@@ -80,12 +77,6 @@
       </section>
       <!-- Recipe Display view -->
       <section class="recipe-display" id="recipeDisplay">
-        <!-- <div class="recipe-card">
-          <div>
-          <img class="recipe-image" src="https://www.pumpkinnspice.com/wp-content/uploads/2020/08/creamy-macaroni-cheese-4.jpg"/>
-        </div>
-          <article>Recipe Name</article>
-        </div> -->
       </section>
       <!-- Favorite Recipe View -->
       <section class="fav-recipes-view" id="favRecipesView">
