@@ -114,6 +114,16 @@ nav {
   justify-content: space-evenly;
 }
 
+
+/* .recipe-card-section {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+} */
+
 .recipe-card {
   height: 50px;
   width: 10%;

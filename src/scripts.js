@@ -13,12 +13,12 @@ import  ingredientsData  from './data/ingredients.js';
 let instantiatedRecipes = [];
 let apiCall =  new ApiHost();
 
-// const apiIng = apiCall.getIngredients();
-// const apiRecipes = apiCall.getRecipes();
-// const apiUsers = apiCall.getUsers();
-// console.log(apiIng);
-// console.log(apiRecipes);
-// console.log(apiUsers);
+const apiIng = apiCall.getIngredients();
+const apiRecipes = apiCall.getRecipes();
+const apiUsers = apiCall.getUsers();
+console.log(apiIng);
+console.log(apiRecipes);
+console.log(apiUsers);
 
 // console.log(apiCall.getIngredients());
 // apiCall.getRecipes();
@@ -48,11 +48,13 @@ const favRecipesView = document.getElementById("favRecipesView");
 const toCookRecipesView = document.getElementById("toCookRecipesView");
 const currentRecipeView = document.getElementById("currentRecipeView");
 const currentRecipeCard = document.getElementById("currentRecipeCard");
+// const recipeCardSection = document.getElementById("recipeCardSection");
 
 // Event Listeners
 allRecipesButton.addEventListener('click', showAllRecipes);
 submitNameIng.addEventListener('click', searchByNameIng);
 submitTagsButton.addEventListener('click', searchByTags);
+// recipeCardSection.addEventListener('click', showCurrentRecipe);
 // recipeDisplay.addEventListener("click", showCurrentRecipe);
 
 window.addEventListener("load", function() {
@@ -79,47 +81,48 @@ function hide(element) {
 
 // Show Recipes Function
 // Change for iteration methods and be able to use for fav and to cook
-
+//
 function showRecipes(recipes) {
-  // console.log(recipes);
-  // recipeDisplay.innerHTML = "";
-  // recipes.forEach(recipe => {
-  //   recipeDisplay.innerHTML +=
-  //
-  //   `
-  //   <p id=${recipe.id}>${recipe.name}</p>
-  //   <img id=${recipe.id} src=${recipe.image}>
-  //   `
-  //
-  // })
-
   recipeDisplay.innerHTML = "";
-  for (var i = 0; i < recipes.length; i++) {
-    //recipes[i];
-    // console.log(recipes[i]);
+  let recipeCard = recipes.forEach(recipe => {
     let recipeCard = document.createElement("div");
     recipeCard.addEventListener("click", showCurrentRecipe)
     recipeCard.innerHTML =
     `
-    <h3 id=${recipes[i].id}>${recipes[i].name}</h3>
-    <img id=${recipes[i].id} src=${recipes[i].image}>
+    <h3 id=${recipe.id}>${recipe.name}</h3>
+    <img id=${recipe.id} src=${recipe.image}>
     `
     recipeDisplay.appendChild(recipeCard)
-  }
+  });
 
-
-
-  // // recipeDisplay.innerHTML = "";
-  // let recipeCard = recipes.forEach(recipe => {
-  //   recipeDisplay.innerHTML +=
+  
+  // recipeDisplay.innerHTML = "";
+  // for (var i = 0; i < recipes.length; i++) {
+  //   //recipes[i];
+  //   // console.log(recipes[i]);
+  //   let recipeCard = document.createElement("div");
+  //   recipeCard.addEventListener("click", showCurrentRecipe)
+  //   recipeCard.innerHTML =
   //   `
-  //   <div>
+  //   <h3 id=${recipes[i].id}>${recipes[i].name}</h3>
+  //   <img id=${recipes[i].id} src=${recipes[i].image}>
+  //   `
+  //   recipeDisplay.appendChild(recipeCard)
+  // }
+
+
+  // recipeCardSection.innerHTML = "";
+  // let recipeCard = recipes.forEach(recipe => {
+  //   recipeCardSection.innerHTML +=
+  //   `
+  //   <div class="recipe-display" id="recipeDisplay">
   //   <p id=${recipe.id}>${recipe.name}</p>
   //   <img id=${recipe.id} src=${recipe.image}>
   //   </div>
   //   `
-  //   recipeDisplay.appendChild(recipeCard)
   // })
+  // <div class="recipe-card-section" id="recipeCardSection">
+    // recipeDisplay.appendChild(recipeCardSection)
 }
 
 function showAllRecipes() {
