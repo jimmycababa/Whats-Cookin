@@ -149,30 +149,15 @@ describe("Recipe", () => {
     expect(recipe.ingredients[3].name).to.equal("pasta");
   });
 
-  it("should calculate estimated cost in cents of ingredients", () => {
+  it("should calculate total estimated cost in cents of ingredients", () => {
     recipe.getPriceOfIngredients(testIngredientsData);
 
-    expect(recipe.getPriceOfIngredients(testIngredientsData)).to.deep.equal([0.75, 6.45, 18.27, 6.48])
-  });
-
-  it("should update ingredient costs", () => {
-    recipe.getPriceOfIngredients(testIngredientsData);
-
-    expect(recipe.ingredients[0].cost).to.equal(6.48);
-    expect(recipe.ingredients[1].cost).to.equal(18.27);
-    expect(recipe.ingredients[2].cost).to.equal(6.45);
-    expect(recipe.ingredients[3].cost).to.equal(0.75);
+    expect(recipe.getPriceOfIngredients(testIngredientsData)).to.equal(31.95)
   });
 
   it("should return the instructions needed to cook recipe", () => {
     recipe.retrieveInstructions();
 
-    expect(recipe.retrieveInstructions()).to.deep.equal([{ "instruction": "Salt the water then boil", "number": 1},
-      {"instruction": "Pour the dry noodles into the pot", "number": 2},
-      {"instruction": "Boil noodles for 8 minutes", "number": 3},
-      {"instruction": "Make a roux with flour and butter", "number": 4},
-      {"instruction": "Add cheese to roux", "number": 5},
-      {"instruction": "Add cheesy roux to noodles and mix", "number": 6}
-    ]);
+    expect(recipe.retrieveInstructions()).to.deep.equal([1,'Salt the water then boil', 2, 'Pour the dry noodles into the pot', 3, 'Boil noodles for 8 minutes', 4, 'Make a roux with flour and butter', 5, 'Add cheese to roux', 6, 'Add cheesy roux to noodles and mix']);
   });
 });

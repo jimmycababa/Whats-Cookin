@@ -173,6 +173,7 @@ function searchByTags() {
   show(recipeDisplay);
 
   let checkBoxMatches = [];
+  console.log(checkBoxMatches)
   checkBoxes.forEach(checkBox => {
     if(checkBox.checked) {
       checkBoxMatches.push(checkBox.value)
@@ -237,12 +238,12 @@ function instantiateRecipes(recipeData) {
   })
 }
 
-function showCurrentRecipe() {
+function showCurrentRecipe(event) {
   hide(recipeDisplay);
   hide(toCookRecipesView);
   hide(favRecipesView);
   show(currentRecipeView);
-  // console.log(event.target.id);
+  console.log(event.target.id);
   preventDefault();
 
   let target = event.target.id;
@@ -252,7 +253,7 @@ function showCurrentRecipe() {
     let numId = recipes.id;
     let stringNum =  numId.toString();
     // let parseNum = num.toString(recipes.id);
-    let test1 = stringNum === target;
+    let test1 = (stringNum === target);
     // console.log(test1);
     displayCurrentRecipe(recipes);
     return test1
@@ -275,4 +276,4 @@ function showCurrentRecipe() {
 // window.onload = showRecipes(recipeRepo.recipes);
 //recipe.createFullIngredients()
 
-console.log('Hello world');
+//console.log('Hello world');
